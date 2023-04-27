@@ -1,48 +1,22 @@
-"Rank","Name","Symbol","marketcap","price (USD)","country"
-"1","Nucor","NUE","36269498368","144.5","United States"
-"2","ArcelorMittal","MT","21891383296","27.83","Luxembourg"
-"3","JSW Steel","JSWSTEEL.NS","21752026739","8.9","India"
-"4","POSCO","PKX","21374265344","69.66","South Korea"
-"5","Nippon Steel","5401.T","20371224676","22.12","Japan"
-"6","Steel Dynamics","STLD","17426962432","102.16","United States"
-"7","Tenaris","TS","16826308608","28.49","Luxembourg"
-"8","Tata Steel","TATASTEEL.NS","16067346180","1.32","India"
-"9","China Steel","2002A.TW","15372316711","1.51","Taiwan"
-"10","Reliance Steel &amp; Aluminum","RS","14140404736","240.32","United States"
-"11","Ternium Argentina","TXAR.BA","9071562181","2.01","Argentina"
-"12","Ternium","TX","8278307840","42.17","Luxembourg"
-"13","Gerdau","GGB","8227431936","4.72","Brazil"
-"14","Cleveland-Cliffs","CLF","7643357184","14.84","United States"
-"15","Jindal Steel &amp; Power","JINDALSTEL.NS","7161345777","7.02","India"
-"16","JFE Holdings","5411.T","7091316825","12.19","Japan"
-"17","SSAB","SSAB-B.ST","6780078051","6.51","Sweden"
-"18","BlueScope Steel","BSL.AX","6399330376","13.86","Australia"
-"19","Erdemir","EREGL.IS","5942412138","1.75","Turkey"
-"20","Voestalpine","VAS.F","5937920542","33.23","Austria"
-"21","U.S. Steel","X","5334561792","23.48","United States"
-"22","İsdemir","ISDMR.IS","4737441896","1.63","Turkey"
-"23","Thyssenkrupp","TKA.F","4390493554","7.05","Germany"
-"24","Steel Authority of India","SAIL.NS","4129996447","1","India"
-"25","Companhia Siderúrgica Nacional","SID","3831178752","2.69","Brazil"
-"26","Aperam","APAM.AS","2528181479","35.02","Luxembourg"
-"27","Acerinox","ACX.MC","2501500529","10.03","Spain"
-"28","Carpenter Technology","CRS","2340083968","48.24","United States"
-"29","Salzgitter","SZG.F","2086448515","38.58","Germany"
-"30","Stelco","STLC.TO","1955236804","35.47","Canada"
-"31","Usiminas","USIM5.SA","1730527444","1.38","Brazil"
-"32","Labrador Iron Ore Royalty Corp.","LIF.TO","1464495892","22.88","Canada"
-"33","Steel Partners","SPLP","920193088","42.46","United States"
-"34","Schnitzer Steel","SCHN","777525568","28.32","United States"
-"35","Algoma Steel","ASTL","750806144","7.21","Canada"
-"36","TimkenSteel","TMST","735869312","16.77","United States"
-"37","Kirloskar Ferrous Industries","KIRLFER.NS","713570336","5.13","India"
-"38","Olympic Steel","ZEUS","530574944","47.66","United States"
-"39","Harsco","HSC","527100288","6.63","United States"
-"40","Mishra Dhatu Nigam","MIDHANI.NS","454744222","2.42","India"
-"41","Tata Steel Long Products","TATASTLLP.NS","363206713","8.01","India"
-"42","MM Forgings","MMFL.NS","248821086","10.31","India"
-"43","Gallantt Ispat","GALLISPAT.NS","221113575","0.78","India"
-"44","Prakash Industries","PRAKASH.NS","116997652","0.65","India"
-"45","ZK International Group","ZKIN","17469808","0.574799","China"
-"46","Severstal","CHMF.ME","0","12.16","Russia"
-"47","Novolipetsk Steel","NLMK.ME","0","1.54","Russia"
+S.No.,Company,Ticker,Country,
+1,AlleghenyTechnologiesIncorporated,ATI,USA,
+2,ArcelorMittal,MT,Luxembourg,
+3,CarpenterTechnologyCorporation,CRS,USA,
+4,CommercialMetalsCompany,CMC,USA,
+5,CompanhiaSiderurgicaNacionalS.A.,SID,Brazil,
+6,FriedmanIndustriesInc.,FRD,USA,
+7,GerdauS.A.,GGB,Brazil,
+8,GrupoSimecS.A.B.deC.V.,SIM,Mexico,
+9,MechelPAO,MTL,Russia,
+10,NucorCorporation,NUE,USA,
+11,POSCO,PKX,SouthKorea,
+12,SunCokeEnergyInc.,SXC,USA,
+13,TenarisS.A.,TS,Luxembourg,
+14,TerniumS.A.,TX,Luxembourg,
+15,TimkenSteelCorporation,TMST,USA,
+16,TitanInternationalInc.,TWI,USA,
+17,USASteelCorporation,X,USA,
+18,WorthingtonIndustriesInc.,WOR,USA,
+,,,,
+,,,,
+,,,,
