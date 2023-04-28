@@ -3,7 +3,7 @@
 ## Research Question
 
 ### What do we want to know or what problems are we trying to solve? As in the midterm, you should list (1) the “bigger” question/debate/problem you’re interested in, and also (2) the specific research question(s) you’ll actually try to answer.
-- To what extent are the following industries returns: Energy, Food, Transport, Metals, and Microchips, affected by the Russia-Ukraine war, in respect to historical moments during the war?
+- To what extent did reported key event days in the Russo-Ukrainian war affect the returns for the major firms in the Energy, Food, Transport, Metals, and Microchips industries?
     - We will then take two different approaches to answer the question at hand. In the first place, we will be analyzing how punctual major events from the war affected the returns by displaying visualizations of cumulative excess returns by industry 20 days before the events and 20 days after it. Through the usage of natural language processing, we also wanted to investigate if the mentioning of the Russia-Ukraine conflict in the 10-K filings for the selected companies’ within the industries of interest, will affect returns at all. 
 
 ### If your project is about relationships, what are the hypotheses you’re testing?
