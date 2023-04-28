@@ -1,0 +1,5 @@
+Substract 1 from the cumulative returns dataset
+Run the code that creates the cumulative return variable at t+3, t+10 and t+20
+Keep improving graphs: maybe add individual firm line graphs
+Maybe look at cumulative return (t+3, t+10 and t+20) between the different industries
+Merge the datasets and possibly optimize the code
