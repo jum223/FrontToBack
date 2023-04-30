@@ -193,7 +193,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "As the refugee crisis in Poland grows as hundreds of thousands are forced from their homes, the following occured to each of the industry sectors. The metal sector experienced 3.81% growth at t+3, likely driven by increased demand and regional uncertainty. Transport returns initially declined by 4.64% at t+3 due to disrupted logistics and increased fuel costs. The energy sector saw an 11.34% increase at t+3, attributed to potential supply disruptions and heightened demand. Food returns grew by 2.12% at t+3, driven by the increased demand to meet the needs of the refugee population. Lastly, the Microchip sector returns declined by 5.63% at t+3, possibly due to supply chain disruptions and broader market uncertainty."
+                    "As the refugee crisis in Poland grows as hundreds of thousands are forced from their homes, the following occured to each of the industry sectors. The metal sector experienced 3.81% growth at t+3, likely driven by increased demand and regional uncertainty. Transport returns initially declined by 4.64% at t+3 due to disrupted logistics and increased fuel costs. The energy sector saw an 11.34% increase at t+3, attributed to potential supply disruptions and heightened demand. Food returns grew by 2.12% at t+3, driven by the increased demand to meet the needs of the refugee population. Lastly, the semiconductor sector returns declined by 5.63% at t+3, possibly due to supply chain disruptions and broader market uncertainty."
             elif option2 == "Irpin Bridge Evacuation":
                 """
                 ## Irpin Bridge Evacuation
@@ -204,13 +204,18 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "Following the Irpin Bridge Evacuation, metal returns saw a moderate growth of 2.45% at t+3, possibly influenced by regional uncertainty and increased demand for resources."
+                    "Following the Irpin Bridge Evacuation, metal returns saw a moderate growth of 2.45% at t+3, possibly influenced by regional uncertainty and increased demand for resources. Transport sector experienced a 3.86% increase at t+3, likely due to heightened demand for evacuation and relocation services. Energy returns grew by 1.61% at t+3, reflecting the impact of localized disruptions and fluctuating demand. Food sector returns declined by 4.28% at t+3, potentially driven by supply chain disruptions and increased production costs in the conflict area. Lastly, Semiconductor returns increased by 2.93% at t+3, which could be an outcome of broader market dynamics rather than a direct link to the event."
             elif option2 == "Mariupol Hospital Attack":
                 """
                 ## Mariupol Hospital Attack
                 ##### March 9, 2022
                 """
                 "A maternity hospital in the southeastern city of Mariupol was hit by a Russian missile. The attack came despite Russia agreeing to a 12-hour pause in hostilities to allow refugees to evacuate. A photo of a pregnant woman injured in the bombing being carried on a stretcher outside the devastated hospital became emblematic of Russia’s senseless aggression against its neighbor."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "Following Mariupol Hospital Attack."
             elif option2 == "Mariupol Theater Bombing":
                 """
                 ## Mariupol Theater Bombing
