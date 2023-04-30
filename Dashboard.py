@@ -2,12 +2,16 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
+
 
 # Load data
-data = pd.read_csv("Data/final.csv")
+data = pd.read_csv("OutputData/final.csv")
 data["Date"] = pd.to_datetime(data['Date'])
-event_date = pd.read_csv("Data/MajorEvents.csv")
+event_date = pd.read_csv("InputData/MajorEvents.csv")
 event_date['Date'] = pd.to_datetime(event_date['Date']) # convert Date column to datetime format
+ret_diffs = pd.read_csv("OutputData/RetDiff.csv")
+ret_diffs["Date"] = pd.to_datetime(ret_diffs['Date'])
 
 """
 # Industry Returns throughout the Russia-Ukraine War
@@ -62,10 +66,26 @@ plt.xlabel('Date')
 plt.ylabel('Cumulative Return')
 
 # move the legend to the bottom right corner
-plt.legend(loc='lower right')
+plt.legend(loc='upper left')
+
+ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+
 
 # show the plot
 st.pyplot(fig)
+
+if option1:
+    if all_option1 in option1:
+        industries = options1
+    else:
+        industries = option1
+    for industry in industries:
+        ret_diffs_filtered = ret_diffs[(ret_diffs['Industry'] == industry) & (ret_diffs['Date'] == date)]
+        if not ret_diffs_filtered.empty:
+            st.sidebar.markdown(f"## {industry} % Difference")
+            st.sidebar.markdown(f"% Difference t+3: {ret_diffs_filtered['ret3'].values[0]:.2%}")
+            st.sidebar.markdown(f"% Difference t+10: {ret_diffs_filtered['ret10'].values[0]:.2%}")
+            st.sidebar.markdown(f"% Difference t+20: {ret_diffs_filtered['ret20'].values[0]:.2%}")
 
 
 # Adding Event Descriptions
