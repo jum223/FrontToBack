@@ -25,8 +25,6 @@ def main():
     page = st.sidebar.radio("Go to", ["Home", "Analysis"])
 
     if page == "Home":
-        st.title("Welcome to My Dashboard!")
-        st.write("This is the home page. Choose 'Analysis' from the sidebar to view the analysis.")
         
         ## Added code inside
         # Create a sidebar with a dropdown menu
@@ -169,24 +167,44 @@ def main():
                 ##### Febuary 24, 2022
                 """
                 "In the early hours of February 24, Russian President Vladimir Putin ordered his troops into Ukraine. Kyiv’s Western allies had been warning of looming Russian aggression for months. Still, Putin’s decision came as a shock to many in Ukraine and across the world. Speaking on Russian state television, he announced the launch of what he called a “special military operation” to “demilitarize” and “denazifiy” Ukraine. Moments later, the first explosions were heard across Ukraine."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "Following Russia's invasion of Ukraine, metals and energy sectors experienced positive returns of 6.06% and 7.00% respectively, after 3 days, due to increased commodity prices and supply concern. Meanwhile, transport, food, and semiconductors sectors faced negative returns of -0.06%, -1.62%, and -3.8% respectively after 3 days, as a result of potential supply chain disruptions and broader market uncertainty. The conflict's impact on these sectors reflects its far-reaching consequences on global markets and industries."
             elif option2 == "Ukraine announces it will defend its territory":
                 """
                 ## Ukraine announces it will defend its territory: 
                 ##### Febuary 25, 2022
                 """
                 "Amid the chaos of the opening hours of the war, rumors started to swirl about Ukraine’s leadership fleeing the country. Ukrainian President Volodymyr Zelensky and his team reacted by filming a video of themselves in central Kyiv, reassuring the nation. “We are all here defending our independence, our state and it will remain so. Glory to our defenders! Glory to our women defenders! Glory to Ukraine!” Zelensky said. The president had refused a US offer to evacuate, according to the Ukrainian government, saying: “I need ammunition, not a ride.”"
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "One day after Russia announces their invasion, Ukraine announces that they will defend their territory and fight for their country. As this news comes only one day after the invasion announcement, industry returns for the metal, energy, transporation, food, and semiconductor does not change drastically enough to make a new supportive analysis statement."
             elif option2 == "Refugee Crisis in Poland": 
                 """
                 ## Refugee Crisis in Poland:
                 ##### March 2, 2022
                 """
                 "The brutality of Russia’s invasion forced hundreds of thousands of Ukrainian civilians to flee the country. The United Nations’ refugee agency (UNHCR) said that at least 100,000 people had left their homes in the first 24 hours of the military assault. Thousands of cars formed queues at the borders, with people waiting several days to cross into neighboring Poland. Many others fled by train, waiting at train stations for days to cram into overcrowded carriages. The majority were women, children and the elderly, as men of fighting age were largely prohibited from leaving the country."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "As the refugee crisis in Poland grows as hundreds of thousands are forced from their homes, the following occured to each of the industry sectors. The metal sector experienced 3.81% growth at t+3, likely driven by increased demand and regional uncertainty. Transport returns initially declined by 4.64% at t+3 due to disrupted logistics and increased fuel costs. The energy sector saw an 11.34% increase at t+3, attributed to potential supply disruptions and heightened demand. Food returns grew by 2.12% at t+3, driven by the increased demand to meet the needs of the refugee population. Lastly, the Microchip sector returns declined by 5.63% at t+3, possibly due to supply chain disruptions and broader market uncertainty."
             elif option2 == "Irpin Bridge Evacuation":
                 """
                 ## Irpin Bridge Evacuation
                 ##### March 6, 2022
                 """
                 "As Russian troops began to approach Kyiv, people living in the northwestern suburbs of the capital got caught up in some of the heaviest street-by-street fighting of the war so far. The main bridge crossing the Irpin River was destroyed by Ukrainians to thwart a Russian advance, which made evacuations difficult. According to the Ukrainian authorities, hundreds of civilians died attempting to flee."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "Following the Irpin Bridge Evacuation, metal returns saw a moderate growth of 2.45% at t+3, possibly influenced by regional uncertainty and increased demand for resources."
             elif option2 == "Mariupol Hospital Attack":
                 """
                 ## Mariupol Hospital Attack
