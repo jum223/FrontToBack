@@ -74,63 +74,76 @@ ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
 # show the plot
 st.pyplot(fig)
 
-# Display ret3, ret10, and ret20 for the selected industry or industries
-# Display returns for selected industry or industries
-# Display ret3, ret10, and ret20 for the selected industry or industries
-# Display returns for selected industry or industries
-# Display ret3, ret10, and ret20 for the selected industry or industries
-# Display returns for selected industry or industries
-# Display ret3, ret10, and ret20 for the selected industry or industries
-# Display returns for selected industry or industries
-
 if all_option1 in option1:
     industries = ret_diffs['Industry'].unique()
 else:
     industries = option1
+    
+# Divide the page into equal-sized columns
+col1, col2, col3 = st.columns(3)
 
 if option1:
     if all_option1 in option1:
-        for industry in industries:
-            st.subheader(industry + ' Returns')
+        for i, industry in enumerate(industries):
             industry_returns_filtered = ret_diffs[(ret_diffs['Industry'] == industry) & (ret_diffs['Date'] == date)]
+            box_content = []
             for _, row in industry_returns_filtered.iterrows():
                 ret3_value = row['ret3'] * 100
                 ret3_color = 'red' if ret3_value < 0 else 'green'
                 ret3_str = f"{ret3_value:.2f}%"
                 ret3_display = f"% difference t+3: <span style='color:{ret3_color};'>{ret3_str}</span>"
-                st.markdown(ret3_display, unsafe_allow_html=True)
+                box_content.append(ret3_display)
                 ret10_value = row['ret10'] * 100
                 ret10_color = 'red' if ret10_value < 0 else 'green'
                 ret10_str = f"{ret10_value:.2f}%"
                 ret10_display = f"% difference t+10: <span style='color:{ret10_color};'>{ret10_str}</span>"
-                st.markdown(ret10_display, unsafe_allow_html=True)
+                box_content.append(ret10_display)
                 ret20_value = row['ret20'] * 100
                 ret20_color = 'red' if ret20_value < 0 else 'green'
                 ret20_str = f"{ret20_value:.2f}%"
                 ret20_display = f"% difference t+20: <span style='color:{ret20_color};'>{ret20_str}</span>"
-                st.markdown(ret20_display, unsafe_allow_html=True)
+                box_content.append(ret20_display)
+            # Display the box in the appropriate column
+            if i % 3 == 0:
+                box_column = col1
+            elif i % 3 == 1:
+                box_column = col2
+            else:
+                box_column = col3
+            with box_column:
+                st.subheader(industry + ' Returns')
+                st.markdown("<br>".join(box_content), unsafe_allow_html=True)
+                
     else:
-        for industry in option1:
-            st.subheader(industry + ' Returns')
+        for i, industry in enumerate(industries):
             industry_returns_filtered = ret_diffs[(ret_diffs['Industry'] == industry) & (ret_diffs['Date'] == date)]
+            box_content = []
             for _, row in industry_returns_filtered.iterrows():
                 ret3_value = row['ret3'] * 100
                 ret3_color = 'red' if ret3_value < 0 else 'green'
                 ret3_str = f"{ret3_value:.2f}%"
                 ret3_display = f"% difference t+3: <span style='color:{ret3_color};'>{ret3_str}</span>"
-                st.markdown(ret3_display, unsafe_allow_html=True)
+                box_content.append(ret3_display)
                 ret10_value = row['ret10'] * 100
                 ret10_color = 'red' if ret10_value < 0 else 'green'
                 ret10_str = f"{ret10_value:.2f}%"
                 ret10_display = f"% difference t+10: <span style='color:{ret10_color};'>{ret10_str}</span>"
-                st.markdown(ret10_display, unsafe_allow_html=True)
+                box_content.append(ret10_display)
                 ret20_value = row['ret20'] * 100
                 ret20_color = 'red' if ret20_value < 0 else 'green'
                 ret20_str = f"{ret20_value:.2f}%"
                 ret20_display = f"% difference t+20: <span style='color:{ret20_color};'>{ret20_str}</span>"
-                st.markdown(ret20_display, unsafe_allow_html=True)
-
-
+                box_content.append(ret20_display)
+            
+            if i % 3 == 0:
+                box_column = col1
+            elif i % 3 == 1:
+                box_column = col2
+            else:
+                box_column = col3
+            with box_column:
+                st.subheader(industry + ' Returns')
+                st.markdown("<br>".join(box_content), unsafe_allow_html=True)
 
 # Adding Event Descriptions
 if option2 == "Invasion Announcement":
