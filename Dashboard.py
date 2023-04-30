@@ -3,6 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
+from PIL import Image
 
 
 # Load data
@@ -12,6 +13,7 @@ event_date = pd.read_csv("InputData/MajorEvents.csv")
 event_date['Date'] = pd.to_datetime(event_date['Date']) # convert Date column to datetime format
 ret_diffs = pd.read_csv("OutputData/RetDiff.csv")
 ret_diffs["Date"] = pd.to_datetime(ret_diffs['Date'])
+img = Image.open('pics/WarImage.png')
 
 """
 # Industry Returns throughout the Russia-Ukraine War
@@ -26,6 +28,11 @@ if st.sidebar.checkbox('Select all industries', False):
     option1 = [all_option1]
 else:
     option1 = st.sidebar.multiselect('Which industries do you want to visualize?', options1)
+    
+# Highlight event date
+option2 = st.sidebar.selectbox(
+    'Which event do you want to visualize?',
+     event_date['Event'].unique())
 
 # Filter data based on selected options
 if all_option1 in option1:
@@ -34,45 +41,45 @@ else:
     data_filtered = data.loc[:, ['Date'] + option1]
     
 # Create plot
-sns.set_style('darkgrid')
-fig, ax = plt.subplots()
-if all_option1 in option1:
-    for col in data_filtered.columns[2:]:
-        sns.lineplot(x='Date', y=col, data=data_filtered, label=col, ax=ax)
+if option1 or (all_option1 in option1):
+    sns.set_style('darkgrid')
+    fig, ax = plt.subplots()
+    if all_option1 in option1:
+        for col in data_filtered.columns[2:]:
+            sns.lineplot(x='Date', y=col, data=data_filtered, label=col, ax=ax)
+    else:
+        for col in option1:
+            sns.lineplot(x='Date', y=col, data=data_filtered, label=col, ax=ax)
+
+
+    date = event_date.loc[event_date['Event'] == option2, 'Date'].iloc[0]
+
+    plt.axvline(date, color='red', linestyle='--', label='Event Date')
+
+    plt.xlim(date - pd.Timedelta(days=20), date + pd.Timedelta(days=20))
+
+    # set x-axis ticks
+    xticks = [date - pd.Timedelta(days=20), date, date + pd.Timedelta(days = 3),date + pd.Timedelta(days = 10), date + pd.Timedelta(days=20)]
+    xticklabels = ['t-20', date.strftime('%Y-%m-%d'), "t+3", "t+10", 't+20']
+    plt.xticks(xticks, xticklabels)
+    plt.xticks(rotation=45)
+
+    # add title and axis labels
+    plt.title('Cumulative Returns by Industry')
+    plt.xlabel('Date')
+    plt.ylabel('Cumulative Return')
+
+    # move the legend to the bottom right corner
+    plt.legend(loc='upper left')
+
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+
+
+    # show the plot
+    st.pyplot(fig)
+
 else:
-    for col in option1:
-        sns.lineplot(x='Date', y=col, data=data_filtered, label=col, ax=ax)
-    
-# Highlight event date
-option2 = st.sidebar.selectbox(
-    'Which event do you want to visualize?',
-     event_date['Event'].unique())
-
-date = event_date.loc[event_date['Event'] == option2, 'Date'].iloc[0]
-
-plt.axvline(date, color='red', linestyle='--', label='Event Date')
-
-plt.xlim(date - pd.Timedelta(days=20), date + pd.Timedelta(days=20))
-
-# set x-axis ticks
-xticks = [date - pd.Timedelta(days=20), date, date + pd.Timedelta(days=20)]
-xticklabels = ['t-20', date.strftime('%Y-%m-%d'), 't+20']
-plt.xticks(xticks, xticklabels)
-plt.xticks(rotation=45)
-
-# add title and axis labels
-plt.title('Cumulative Returns by Industry')
-plt.xlabel('Date')
-plt.ylabel('Cumulative Return')
-
-# move the legend to the bottom right corner
-plt.legend(loc='upper left')
-
-ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
-
-
-# show the plot
-st.pyplot(fig)
+    st.image(img, caption='Sunrise by the mountains')
 
 if all_option1 in option1:
     industries = ret_diffs['Industry'].unique()
