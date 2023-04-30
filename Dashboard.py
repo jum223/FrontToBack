@@ -74,18 +74,62 @@ ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
 # show the plot
 st.pyplot(fig)
 
+# Display ret3, ret10, and ret20 for the selected industry or industries
+# Display returns for selected industry or industries
+# Display ret3, ret10, and ret20 for the selected industry or industries
+# Display returns for selected industry or industries
+# Display ret3, ret10, and ret20 for the selected industry or industries
+# Display returns for selected industry or industries
+# Display ret3, ret10, and ret20 for the selected industry or industries
+# Display returns for selected industry or industries
+
+if all_option1 in option1:
+    industries = ret_diffs['Industry'].unique()
+else:
+    industries = option1
+
 if option1:
     if all_option1 in option1:
-        industries = options1
+        for industry in industries:
+            st.subheader(industry + ' Returns')
+            industry_returns_filtered = ret_diffs[(ret_diffs['Industry'] == industry) & (ret_diffs['Date'] == date)]
+            for _, row in industry_returns_filtered.iterrows():
+                ret3_value = row['ret3'] * 100
+                ret3_color = 'red' if ret3_value < 0 else 'green'
+                ret3_str = f"{ret3_value:.2f}%"
+                ret3_display = f"% difference t+3: <span style='color:{ret3_color};'>{ret3_str}</span>"
+                st.markdown(ret3_display, unsafe_allow_html=True)
+                ret10_value = row['ret10'] * 100
+                ret10_color = 'red' if ret10_value < 0 else 'green'
+                ret10_str = f"{ret10_value:.2f}%"
+                ret10_display = f"% difference t+10: <span style='color:{ret10_color};'>{ret10_str}</span>"
+                st.markdown(ret10_display, unsafe_allow_html=True)
+                ret20_value = row['ret20'] * 100
+                ret20_color = 'red' if ret20_value < 0 else 'green'
+                ret20_str = f"{ret20_value:.2f}%"
+                ret20_display = f"% difference t+20: <span style='color:{ret20_color};'>{ret20_str}</span>"
+                st.markdown(ret20_display, unsafe_allow_html=True)
     else:
-        industries = option1
-    for industry in industries:
-        ret_diffs_filtered = ret_diffs[(ret_diffs['Industry'] == industry) & (ret_diffs['Date'] == date)]
-        if not ret_diffs_filtered.empty:
-            st.sidebar.markdown(f"## {industry} % Difference")
-            st.sidebar.markdown(f"% Difference t+3: {ret_diffs_filtered['ret3'].values[0]:.2%}")
-            st.sidebar.markdown(f"% Difference t+10: {ret_diffs_filtered['ret10'].values[0]:.2%}")
-            st.sidebar.markdown(f"% Difference t+20: {ret_diffs_filtered['ret20'].values[0]:.2%}")
+        for industry in option1:
+            st.subheader(industry + ' Returns')
+            industry_returns_filtered = ret_diffs[(ret_diffs['Industry'] == industry) & (ret_diffs['Date'] == date)]
+            for _, row in industry_returns_filtered.iterrows():
+                ret3_value = row['ret3'] * 100
+                ret3_color = 'red' if ret3_value < 0 else 'green'
+                ret3_str = f"{ret3_value:.2f}%"
+                ret3_display = f"% difference t+3: <span style='color:{ret3_color};'>{ret3_str}</span>"
+                st.markdown(ret3_display, unsafe_allow_html=True)
+                ret10_value = row['ret10'] * 100
+                ret10_color = 'red' if ret10_value < 0 else 'green'
+                ret10_str = f"{ret10_value:.2f}%"
+                ret10_display = f"% difference t+10: <span style='color:{ret10_color};'>{ret10_str}</span>"
+                st.markdown(ret10_display, unsafe_allow_html=True)
+                ret20_value = row['ret20'] * 100
+                ret20_color = 'red' if ret20_value < 0 else 'green'
+                ret20_str = f"{ret20_value:.2f}%"
+                ret20_display = f"% difference t+20: <span style='color:{ret20_color};'>{ret20_str}</span>"
+                st.markdown(ret20_display, unsafe_allow_html=True)
+
 
 
 # Adding Event Descriptions
