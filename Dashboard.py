@@ -29,7 +29,7 @@ def main():
         ## Added code inside
         # Create a sidebar with a dropdown menu
         # Create a sidebar with a dropdown menu
-        options1 = ['Metal', 'Energy', 'Microchips', "Transport", "Food"]
+        options1 = ['Metal', 'Energy', 'Semiconductor', "Transport", "Food"]
         all_option1 = 'All of Them'
         if st.sidebar.checkbox('Select all industries', False):
             option1 = [all_option1]
