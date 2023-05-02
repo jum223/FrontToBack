@@ -11,7 +11,7 @@ data = pd.read_csv("OutputData/final.csv")
 data["Date"] = pd.to_datetime(data['Date'])
 event_date = pd.read_csv("InputData/MajorEvents.csv")
 event_date['Date'] = pd.to_datetime(event_date['Date']) # convert Date column to datetime format
-ret_diffs = pd.read_csv("OutputData/RetDiff1.csv")
+ret_diffs = pd.read_csv("OutputData/RetDiff.csv")
 ret_diffs["Date"] = pd.to_datetime(ret_diffs['Date'])
 img = Image.open('pics/WarImage.png')
 
@@ -45,18 +45,20 @@ def main():
         if all_option1 in option1:
             data_filtered = data.copy()
         else:
-            data_filtered = data.loc[:, ['Date'] + option1]
+            data_filtered = data.query("Industry in @option1")
 
         # Create plot
         if option1 or (all_option1 in option1):
             sns.set_style('darkgrid')
             fig, ax = plt.subplots()
             if all_option1 in option1:
-                for col in data_filtered.columns[2:]:
-                    sns.lineplot(x='Date', y=col, data=data_filtered, label=col, ax=ax)
+                for ind in data_filtered["Industry"].unique():
+                    industry_df = data_filtered[data_filtered['Industry'] == ind]
+                    sns.lineplot(x='Date', y='Cum_ret', data=industry_df, label=ind, ax=ax, ci=None)
             else:
                 for col in option1:
-                    sns.lineplot(x='Date', y=col, data=data_filtered, label=col, ax=ax)
+                    industry_df = data_filtered[data_filtered['Industry'] == col]
+                    sns.lineplot(x='Date', y='Cum_ret', data=industry_df, label=col, ax=ax, ci=None)
 
 
             date = event_date.loc[event_date['Event'] == option2, 'Date'].iloc[0]
