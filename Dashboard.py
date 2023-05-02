@@ -231,30 +231,56 @@ def main():
                 ##### April 1, 2022
                 """
                 "When Russian troops withdrew from Bucha in early April, they left behind a trail of destruction — and evidence of summary executions, brutality and indiscriminate shelling. Images showing dozens of bodies of civilians scattered around a single street in Bucha prompted calls for Russia to be investigated for war crimes. Russia made baseless claims that the images were fake and has prosecuted several Russian journalists and dissidents who spoke up about the killings for spreading “false information” about the war. International experts from the Organization for Security and Cooperation in Europe said they found “grave breaches” of international humanitarian law by Russian forces."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "The percentage change in returns immediately after the war crimes were uncovered resulted in negative returns for most industries except the semiconductor industry, which had returns increase by 0.67%, while the rest ranged from -0.57% to -1.32%. The longer term returns, 20 days after the event showed that most industries eventually recovered and had positive returns except for the semiconductor industry, which suffered a decrease in -9.64% returns. While the rest of the industries flourished between 2.84% and 8.04%."
+                    
             elif option2 == "Sunking of Russian main ship":
                 """
                 ## Sunking of Russian main ship
                 ##### April 14, 2022
                 """
                 "Moskva, the flagship of Russia’s Black Sea fleet, sank on April 14. The cause remains disputed. Ukraine said it hit the Moskva with anti-ship cruise missiles, sparking a fire that detonated stored ammunition. Russia blamed a fire of unknown origin. Whatever the reason, the loss of the guided-missile cruiser was a major military embarrassment for Russia and its biggest wartime loss of a naval ship in 40 years."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "After the sinking of the Russian flagship, most industries were on level with their reaction to this event, returns ranged between -0.66% and 1.25%, worst and best of being the food and energy industries respectively. 20 days after the event returns ranged from -3.27% and 6.69%, both extremes being that of the metal and semiconductor industries."
             elif option2 == "Mariupol Steel Plant Defence":
                 """
                 ## Mariupol Steel Plant Defence
                 ##### May 17, 2022
                 """
                 "The sprawling Azovstal steel plant in Mariupol became another symbol of Ukrainian resistance in the face of a much larger enemy. Defenders of the plant withstood weeks of relentless Russian bombardment before finally surrendering in May. Ukrainian officials praised the fighters, saying their fierce defense of the complex had stalled Russian forces and prevented the capture of Zaporizhzhia, further west."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "3 days after the successful defense by Ukrainian troops at the Mariupol Steel Plant, stock returns varied from -1.79% through 1.71%, the transportation having the lowest and the energy industry with the highest returns. 20 days after the event, returns varied significantly between industries. The food industry had the lowest returns with a -3.67% and the energy industry had the highest returns, with 11.62%."
             elif option2 == "Russian retreat from Kharkiv":
                 """
                 ## Russian retreat from Kharkiv
                 ##### September 1, 2022
                 """
                 "A blistering Ukrainian counteroffensive in eastern Ukraine in September recaptured large swaths of territory and forced Russian troops to flee the Kharkiv region. Moscow tried to spin the hasty withdrawal as “regrouping.” But in a sign of just how badly things were going for Russia, the military was publicly criticized by a number of high-profile Kremlin loyalists including Chechen leader Ramzan Kadyrov, who supplied thousands of fighters to the offensive."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "3 days after the Russian retreat from Kharkiv, returns varied slightly for most firms. The food industry had returns -0.41%, thus being the lowest and the highest was the energy industry with 3.84%. 20 days after the event, the transport industry had the lowest returns with -1.85%, and the highest was the semiconductor industry, with 2.58%."
             elif option2 == "Russia starts mobilization":
                 """
                 ## Russia starts mobilization
                 ##### September 21, 2022
                 """
                 "Following a string of embarrassing defeats in Ukraine, Putin announced Russia’s first mobilization since World War II on September 21. The controversial draft sparked protests — a rare sight in Russia — and an exodus of men of fighting age from the country. The partial mobilization was beset by errors and produced fighters that were poorly equipped and largely untrained. However, it significantly increased Russia’s troop numbers."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "3 days after Russia started its mobilization effort, all the industries acted differently to this event. The energy industry had the lowest returns, of -7.10%, while the food industry had the highest returns with 0.77%. 20 days after the event, returns increased for most firms except for the semiconductor industry, which had the lowest returns, -4.57%, while the industry with the highest returns was the energy industry, with 8.92% returns."
             elif option2 == "Crimea Bridge Attack":
                 """
                 ## Crimea Bridge Attack
