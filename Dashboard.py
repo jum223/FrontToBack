@@ -17,7 +17,6 @@ img = Image.open('pics/Garganta.png')
 # Title the dashboard
 """
 # Industry Returns throughout the Russia-Ukraine War
-#### Industry Returns around major events in the armed conflict
 """
 
 def main():
@@ -93,6 +92,9 @@ def main():
             st.pyplot(fig)
 
         else:
+            """
+            #### Industry Returns around major events in the armed conflict
+            """
             st.image(img, caption='Ukrainian Soldiers')
 
         if all_option1 in option1:
