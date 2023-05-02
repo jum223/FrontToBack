@@ -51,7 +51,7 @@ def main():
             data_filtered = data.query("Industry in @option1")
             
         sns.set_style("whitegrid", {'axes.grid': True, 'grid.color': '.8', 'grid.linestyle': '-'})
-        sns.despine(left=True, bottom=True)
+        sns.despine()
 
         # Create plot
         if option1 or (all_option1 in option1):
