@@ -40,13 +40,18 @@ In order to download these packages type into the command-line argument interfac
 
 ## About the team
 
-<img src="pics/julio.jpg" alt="julio" width="300"/>
+<img src="pics/juan.jpg" alt="Juan Mozos Nieto" width="300"/>
 <br>
-Julio is a senior at Lehigh studying finance.
-<br><br><br>
-<img src="pics/don2.jpg" alt="don" width="300"/>
+Juan is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Financial Technology
+(FinTech).
+<br><br>
+<img src="pics/don2.jpg" alt="Matthew Sam" width="300"/>
 <br>
-Don is an assistant professor at Lehigh.
+Matthew is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Spanish.
+<img src="pics/don2.jpg" alt="Matthew Sam" width="300"/>
+<br>
+Matthew is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Spanish.
+
 
 
 ## More 
