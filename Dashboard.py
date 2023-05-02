@@ -17,7 +17,7 @@ img = Image.open('pics/Garganta.png')
 
 
 """
-# Industry Returns throughout the Russia-Ukraine War Garganta
+# Industry Returns throughout the Russia-Ukraine War
 #
 """
 
