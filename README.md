@@ -20,7 +20,7 @@ In order to run, test the code, or deploy the dashboard itself please follow the
 1. First, clone this repo into your own machine, in order to do this you will have to run the following command <git clone https://github.com/jum223/FrontToBack> wherever you desire to store this repo. 
 2. Second, run the file called DataDownload.ipynb found in the code folder of the repo.
 3. Third, run the file called MainBuild.ipynb fond in the code folder of the repo.
-4. Then, open a terminal in your machine, and access the location where you cloned this repo using a cd statement in the form of ```cd <the path to the repo in your machine>```. Once this is done you will have to run the following command: ```<streamlit run Dashboard.py```. You will see a tab open up in your browser with the Dashboard created here. 
+4. Then, open a terminal in your machine, and access the location where you cloned this repo using a cd statement in the form of ```cd <the path to the repo in your machine>```. Once this is done you will have to run the following command: ```<streamlit run Dashboard.py>```. You will see a tab open up in your browser with the Dashboard created here. 
     
 Please refer to the section below for instructions on the necessary installations you will need to run the code.
 
