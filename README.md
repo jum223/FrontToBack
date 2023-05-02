@@ -1,80 +1,42 @@
-# Welcome to our [team project dashboard!](https://russiaukrainewarindustryreturns.streamlit.app)
+# FIN377 (Data Science for Finance) Final Project - Industry Returns throughout the Russia-Ukraine War
+### Project Contributors: Luca Fontaine, Matthew Sam, and Juan Mozos Nieto. 
 
-This is a website to showcase our final project for FIN 377 - Data Science for Finance course at Lehigh University.
+## Project's Purpose
 
-To see the complete analysis file(s) click [here](https://github.com/julioveracruz/testwebsite/blob/main/notebooks/example.ipynb).
+The main goal of this project is to explore how different industries are affected by the Russian-Ukrainian armed conflict that started on the 24th of February of 2022. In order to do so, we analyzed how different industries' returns were affected by a number of major events throughout the course of the war. We used a total of 17 major events and saw how cumulative returns for 5 industries, namely metal, energy, semiconductors, food, and transport industries, changed. In order to perform our analysis we used line-plots and computed return differences between the event date, 3 days after the event and 10 days after the event.
 
-Maybe you want a different website them for the project? Consider `minimal-mistakes`:
-1. [Go here](https://github.com/mmistakes/mm-github-pages-starter/generate).
-2. In the resulting repo, click Settings, then Pages, then make sure the source is the main branch.
-3. [The doc site is here](https://mmistakes.github.io/minimal-mistakes/docs/structure/) and will help you customize layouts and figure out how to use it.
+**To see and interact with the visualizations we based our analysis on, please visit the [home page](https://russiaukrainewarindustryreturns.streamlit.app) of our dashboard. This page will allow you to select a number industries at a time (or all of them) and events based on their description which will then output a line graph based on the desired industry and event choices**
 
-## Table of contents
-1. [Introduction](#introduction)
-2. [Methodology](#meth)
-3. [Section 2](#section2)
-    1. [Subsection](#subsec2-1)
-    2. [Subsection](#subsec2-2)
-4. [Analysis Section](#section3)
-5. [Summary](#summary)
+**For further details on the data we used to produce the visualization, the methodologies used to produce the code that produces the visualizations, our findings and the conclusions we reached please visit our dashboard's [analysis section](https://russiaukrainewarindustryreturns.streamlit.app/#analysis)**
 
-## Introduction  <a name="introduction"></a>
+## Summarized Findings
 
-(The "Introduction" text above is formatted in heading 2 style.) The main goal of this project is to explore *(insert project idea here)*.  
+Enter a very brief summary of our findings here after we are done with the report 
 
-## Methodology <a name="meth"></a>
+## How to Run the Code
 
-Here is some code that we used to develop our analysis. Blah Blah. [More details are provided in the Appendix](page2).
- 
-Note that for the purposes of the website, you have to copy this code into the markdown file and  
-put the code inside trip backticks with the keyword `python`.
+In order to run, test the code, or deploy the dashboard itself please follow these steps:
 
-```python
-import seaborn as sns 
-iris = sns.load_dataset('iris') 
+1. First, clone this repo into your own machine, in order to do this you will have to run the following command <git clone https://github.com/jum223/FrontToBack> wherever you desire to store this repo. 
+2. Second, run the file called DataDownload.ipynb found in the code folder of the repo.
+3. Third, run the file called MainBuild.ipynb fond in the code folder of the repo.
+4. Then, open a terminal in your machine, and access the location where you cloned this repo using a cd statement in the form of ```cd <the path to the repo in your machine>```. Once this is done you will have to run the following command: ```<streamlit run Dashboard.py```. You will see a tab open up in your browser with the Dashboard created here. 
+    
+Please refer to the section below for instructions on the necessary installations you will need to run the code.
 
-print(iris.head(),  '\n---')
-print(iris.tail(),  '\n---')
-print(iris.columns, '\n---')
-print("The shape is: ",iris.shape, '\n---')
-print("Info:",iris.info(), '\n---') # memory usage, name, dtype, and # of non-null obs (--> # of missing obs) per variable
-print(iris.describe(), '\n---') # summary stats, and you can customize the list!
-print(iris['species'].value_counts()[:10], '\n---')
-print(iris['species'].nunique(), '\n---')
-```
+## Necessary packages and installations
 
-Notice that the output does NOT show! **You have to copy in figures and tables from the notebooks.**
+In order to make this code work there are a number of packages and libraries which you will need to download. First you have to download [git](https://git-scm.com/downloads), this will allow you to run the git clone command specified in the section above. It is also necessary to have a environment where you can run python code. I would recommend downloading [anconda](https://www.anaconda.com). This will the allow you to open the cloned repository on jupyter labs, which will allow you to run the python code contained in the .ipynb files. Once that is done, it will be necessary to open a terminal or a command line interface to download the necessary packages. These are the necessary packages:
 
-## Section <a name="section2"></a>
-Blah blah
+- pandas
+- numpy
+- pandas_datareader
+- yfinance
+- datetime
+- seaborn
+- matplotlib
 
-### Subsection 1 <a name="subsec2-1"></a>
-This is a subsection, formatted in heading 3 style
-
-### Subsection 2 <a name="subsec2-2"></a>
-This is a subsection, formatted in heading 3 style
-
-## Analysis Section <a name="section3"></a>
-
-Here are some graphs that we created in our analysis. We saved them to the `pics/` subfolder and include them via the usual markdown syntax for pictures.
-
-![](pics/plot1.png)
-<br><br>
-Some analysis here
-<br><br>
-![](pics/plot2.png)
-<br><br>
-More analysis here.
-<br><br>
-![](pics/plot3.png)
-<br><br>
-More analysis.
-
-## Summary <a name="summary"></a>
-
-Blah blah
-
-
+In order to download these packages type into the command-line argument interface the following: pip install <library_name>. Once this is done you should be able to run all the code in this directory. Make sure that you run all of the import statements that appear through the .ipynb file. In order to run this then clone this repository from github into your own machine, then use the command line argument interface to access that repository by running the command "jupyter lab". This will open a tab in your web browser that will allow you to successfully run the code on your machine. Remember to follow the running steps highlighted above.
 
 ## About the team
 
@@ -89,4 +51,4 @@ Don is an assistant professor at Lehigh.
 
 ## More 
 
-To view the GitHub repo for this website, click [here](https://github.com/donbowen/teamproject).
+To see the files which produced the visualizations shown in the dashboard please see our [build file](https://github.com/jum223/FrontToBack/blob/main/Code/MainBuild.ipynb).
