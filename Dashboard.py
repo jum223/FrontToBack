@@ -76,7 +76,7 @@ def main():
             xticklabels = ['t-20', date.strftime('%Y-%m-%d'), "t+3", "t+10", 't+20']
             plt.xticks(xticks, xticklabels)
             plt.xticks(rotation=45)
-            sns.despine(right=True, top=True)
+            sns.despine(right=True, top=True, bottom = True, left = True)
 
             # add title and axis labels
             plt.title('Cumulative Returns by Industry')
