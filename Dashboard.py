@@ -14,8 +14,7 @@ ret_diffs = pd.read_csv("OutputData/RetDiff.csv")
 ret_diffs["Date"] = pd.to_datetime(ret_diffs['Date'])
 img = Image.open('pics/Garganta.png')
 
-
-
+print("is this coming through")
 """
 # Industry Returns throughout the Russia-Ukraine War
 #### Industry Returns around major events in the armed conflict
