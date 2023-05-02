@@ -52,6 +52,7 @@ def main():
             
         sns.set_style("whitegrid", {'axes.grid': True, 'grid.color': '.8', 'grid.linestyle': '-'})
         sns.despine(top=True, right=True)
+        sns.set_style("ticks", {"xtick.major.size": 0, "ytick.major.size": 0})
 
         # Create plot
         if option1 or (all_option1 in option1):
