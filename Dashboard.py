@@ -120,11 +120,6 @@ def main():
                         ret10_str = f"{ret10_value:.2f}%"
                         ret10_display = f"% difference t+10: <span style='color:{ret10_color};'>{ret10_str}</span>"
                         box_content.append(ret10_display)
-                        ret20_value = row['ret20'] * 100
-                        ret20_color = 'red' if ret20_value < 0 else 'green'
-                        ret20_str = f"{ret20_value:.2f}%"
-                        ret20_display = f"% difference t+20: <span style='color:{ret20_color};'>{ret20_str}</span>"
-                        box_content.append(ret20_display)
                     # Display the box in the appropriate column
                     if i % 3 == 0:
                         box_column = col1
@@ -151,11 +146,6 @@ def main():
                         ret10_str = f"{ret10_value:.2f}%"
                         ret10_display = f"% difference t+10: <span style='color:{ret10_color};'>{ret10_str}</span>"
                         box_content.append(ret10_display)
-                        ret20_value = row['ret20'] * 100
-                        ret20_color = 'red' if ret20_value < 0 else 'green'
-                        ret20_str = f"{ret20_value:.2f}%"
-                        ret20_display = f"% difference t+20: <span style='color:{ret20_color};'>{ret20_str}</span>"
-                        box_content.append(ret20_display)
 
                     if i % 3 == 0:
                         box_column = col1
