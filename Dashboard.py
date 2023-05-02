@@ -14,7 +14,7 @@ ret_diffs = pd.read_csv("OutputData/RetDiff.csv")
 ret_diffs["Date"] = pd.to_datetime(ret_diffs['Date'])
 img = Image.open('pics/Garganta.png')
 
-print("is this coming through")
+# Title the dashboard
 """
 # Industry Returns throughout the Russia-Ukraine War
 #### Industry Returns around major events in the armed conflict
@@ -168,7 +168,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "Following Russia's invasion of Ukraine, metals and energy sectors experienced positive returns of 6.06% and 7.00% respectively, after 3 days, due to increased commodity prices and supply concern. Meanwhile, transport, food, and semiconductors sectors faced negative returns of -0.06%, -1.62%, and -3.8% respectively after 3 days, as a result of potential supply chain disruptions and broader market uncertainty. The conflict's impact on these sectors reflects its far-reaching consequences on global markets and industries."
+                    "Following Russia’s invasion of Ukraine, the percentage change in returns after 3 days seemed relatively positive with Food, Transport, Energy, and Metal industries experiencing a growth between 0.57% and 4.65%. The longer term returns, 10 days after the event, showed energy and metal percent returns changes increasing to 17.83% and 12.79% respectively. The food returns also increased to 2.16%, while the semiconductors and transport returns experienced marginal decreases. Looking ahead at 20 days after the event, energy and metal industries experienced a sharp decline in returns, while the remaining industries leveled out."
             elif option2 == "Ukraine announces it will defend its territory":
                 """
                 ## Ukraine announces it will defend its territory: 
@@ -179,7 +179,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "One day after Russia announces their invasion, Ukraine announces that they will defend their territory and fight for their country. As this news comes only one day after the invasion announcement, industry returns for the metal, energy, transporation, food, and semiconductor does not change drastically enough to make a new supportive analysis statement."
+                    "One day after Russia announced their invasion, Ukraine announced that they will defend their territory and fight for their country. As this news comes only one day after the invasion announcement, industry returns for the metal, energy, transportation, food, and semiconductor do not change drastically enough to make a new supportive analysis statement."
             elif option2 == "Refugee Crisis in Poland": 
                 """
                 ## Refugee Crisis in Poland:
@@ -190,7 +190,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "As the refugee crisis in Poland grows as hundreds of thousands are forced from their homes, the following occured to each of the industry sectors. The metal sector experienced 3.81% growth at t+3, likely driven by increased demand and regional uncertainty. Transport returns initially declined by 4.64% at t+3 due to disrupted logistics and increased fuel costs. The energy sector saw an 11.34% increase at t+3, attributed to potential supply disruptions and heightened demand. Food returns grew by 2.12% at t+3, driven by the increased demand to meet the needs of the refugee population. Lastly, the Microchip sector returns declined by 5.63% at t+3, possibly due to supply chain disruptions and broader market uncertainty."
+                    "As the refugee crisis in Poland grows as hundreds of thousands are forced from their homes, the following occurred to each of the industry sectors. Within the first 3 days, energy, metal, and food industries experienced a percentage change of 7.54%, 3.69%, and 1.28% respectively. The longer term returns, 10 days after the event showed a split between the energy and metal industries who were experiencing growth while food, transport, and semiconductors experienced a percentage change of -2.07%, -0.41%, and -4.7% respectively."
             elif option2 == "Irpin Bridge Evacuation":
                 """
                 ## Irpin Bridge Evacuation
@@ -201,19 +201,29 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "Following the Irpin Bridge Evacuation, metal returns saw a moderate growth of 2.45% at t+3, possibly influenced by regional uncertainty and increased demand for resources."
+                    "Following the Irpin Bridge Evacuation, all industries experienced slight decreases in their percentage change except for transportation and semiconductors who experienced percentage change growths of 2.12% and 3.91% respectively. When looking at day 10 after the event, the energy, metal, and food industries experienced percentage changes of -9.5%, -0.53%, and -5.6% respectively. This comes as a shock as energy and metal industry returns remained vigilant throughout the start of the war but have since been declining. Meanwhile, the transportation and semiconductors experienced percentage changes of 6.16% and 3.91% respectively over the same period."
             elif option2 == "Mariupol Hospital Attack":
                 """
                 ## Mariupol Hospital Attack
                 ##### March 9, 2022
                 """
                 "A maternity hospital in the southeastern city of Mariupol was hit by a Russian missile. The attack came despite Russia agreeing to a 12-hour pause in hostilities to allow refugees to evacuate. A photo of a pregnant woman injured in the bombing being carried on a stretcher outside the devastated hospital became emblematic of Russia’s senseless aggression against its neighbor."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "The percentage change in returns 3 days after the Mariupol Hospital attack revealed increases to both the transport, energy, and metal industries, with returns of 1.03%, 1.34%, and 3.92% respectively. Looking at the 10 day period after the event, energy returns dropped -5.74% and food with -3.91%, while transport, semiconductors, and metal industries experienced percentage changes of 2.6%, 0.78%, and 2.3% respectively. Looking at returns 20 days after the event, shows both energy and metal industries now overlapping with semiconductor returns."
             elif option2 == "Mariupol Theater Bombing":
                 """
                 ## Mariupol Theater Bombing
                 ##### March 16, 2022
                 """
                 "The bombing of Mariupol’s Drama Theater was among the most brazen of Russia’s attacks on civilians. Ukrainian officials estimated 1,300 people were sheltering in the theater in the centre of a city which had, at that point, been under siege for weeks. Around 300 died that day, authorities said at the time, but subsequent reports suggested the death toll could be higher. Russia, which had been bombarding the city for weeks, denied its forces were responsible."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "Only a week after the Mariupol Hospital attack, the Mariupol Theater was bombed which resulted in negative percentage changes for only the food and transportation industries. Meanwhile energy, metal, and semiconductor industries experienced positive percentage changes of 3.59%, 1.24% and 0.90% respectively. At this point when looking at the graph, it can be seen that the energy and metal industries have percent changes that follow one another as they have similar graphs over the time period. Looking at 10 days after the event, energy, metal, and semiconductors experienced percent changes in returns of 10.57%, 5.56% and 1.76% respectively."
             elif option2 == "War crimes uncovered":
                 """
                 ## War crimes uncovered
