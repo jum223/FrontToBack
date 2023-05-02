@@ -12,7 +12,7 @@ event_date = pd.read_csv("InputData/MajorEvents.csv")
 event_date['Date'] = pd.to_datetime(event_date['Date']) # convert Date column to datetime format
 ret_diffs = pd.read_csv("OutputData/RetDiff.csv")
 ret_diffs["Date"] = pd.to_datetime(ret_diffs['Date'])
-img = Image.open('pics/WarImage.png')
+img = Image.open('pics/Garganta.png')
 
 
 
