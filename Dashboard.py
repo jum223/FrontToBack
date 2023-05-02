@@ -225,7 +225,8 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "The percentage change in returns immediately after the war crimes were uncovered resulted in negative returns for most industries except the semiconductor industry, which had returns increase by 0.67%, while the rest ranged from -0.57% to -1.32%. The longer term returns, 20 days after the event showed that most industries eventually recovered and had positive returns except for the semiconductor industry, which suffered a decrease in -9.64% returns. While the rest of the industries flourished between 2.84% and 8.04%."
+                    "The percentage change in returns 3 days after the war crimes were uncovered resulted in negative returns for most industries except the semiconductor industry, which had returns increase by 0.67%, while the rest ranged from -0.57% to -1.32%. The longer term returns, 10 days after the event showed a split between industries. The food, energy and metal industries all had positive returns, 4.65%, 1.22% and 1.22% respectively. The transport and semiconductor industries had major decreases in returns, -4.83% and -9.38% respectively. 
+"
                     
             elif option2 == "Sunking of Russian main ship":
                 """
@@ -237,7 +238,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "After the sinking of the Russian flagship, most industries were on level with their reaction to this event, returns ranged between -0.66% and 1.25%, worst and best of being the food and energy industries respectively. 20 days after the event returns ranged from -3.27% and 6.69%, both extremes being that of the metal and semiconductor industries."
+                    "3 days after the sinking of the Russian flagship, most industries were on level with their reaction to this event, returns ranged between -0.66% and 1.25%, worst and best of being the food and energy industries respectively. 10 days after the event returns ranged from -7.03% and 4.31%, both extremes being that of the energy and transport industries."
             elif option2 == "Mariupol Steel Plant Defence":
                 """
                 ## Mariupol Steel Plant Defence
@@ -248,7 +249,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "3 days after the successful defense by Ukrainian troops at the Mariupol Steel Plant, stock returns varied from -1.79% through 1.71%, the transportation having the lowest and the energy industry with the highest returns. 20 days after the event, returns varied significantly between industries. The food industry had the lowest returns with a -3.67% and the energy industry had the highest returns, with 11.62%."
+                    "3 days after the successful defense by Ukrainian troops at the Mariupol Steel Plant, stock returns varied from -1.79% through 1.71%, the transportation having the lowest and the energy industry with the highest returns. 10 days after the event, returns varied significantly between industries. The food industry had the lowest returns with a -3.11% and the energy industry had the highest returns, with 7.27%."
             elif option2 == "Russian retreat from Kharkiv":
                 """
                 ## Russian retreat from Kharkiv
@@ -259,7 +260,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "3 days after the Russian retreat from Kharkiv, returns varied slightly for most firms. The food industry had returns -0.41%, thus being the lowest and the highest was the energy industry with 3.84%. 20 days after the event, the transport industry had the lowest returns with -1.85%, and the highest was the semiconductor industry, with 2.58%."
+                    "3 days after the Russian retreat from Kharkiv, returns varied slightly for most firms. The food industry had returns -0.41%, thus being the lowest and the highest was the energy industry with 3.84%. 10 days after the event, the food industry had the lowest returns with -3.40%, and the highest was the metal industry, with 2.58%."
             elif option2 == "Russia starts mobilization":
                 """
                 ## Russia starts mobilization
@@ -270,7 +271,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "3 days after Russia started its mobilization effort, all the industries acted differently to this event. The energy industry had the lowest returns, of -7.10%, while the food industry had the highest returns with 0.77%. 20 days after the event, returns increased for most firms except for the semiconductor industry, which had the lowest returns, -4.57%, while the industry with the highest returns was the energy industry, with 8.92% returns."
+                    "3 days after Russia started its mobilization effort, all the industries acted differently to this event. The energy industry had the lowest returns, of -7.10%, while the food industry had the highest returns with 0.87%. 10 days after the event, returns were split between all industries. The industries with positive returns were the food and energy industries, 0.84% and 1.10% respectively. The metal, transportation, and semiconductor industries all had decreasing returns, -0.11%, -1.03%, and -1.26% respectively."
             elif option2 == "Crimea Bridge Attack":
                 """
                 ## Crimea Bridge Attack
@@ -299,24 +300,44 @@ def main():
                 ##### November 12, 2022
                 """
                 "After eight months of brutal Russian occupation, the southern city of Kherson was liberated on November 12, prompting scenes of celebration by residents. Russia’s hasty withdrawal from the west bank of the Dnipro River was another bleak moment for Moscow, since Kherson was the only Ukrainian regional capital that Russian forces had captured. Putin himself had formally declared Kherson to be Russian territory just weeks before his troops’ retreat."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "Judging by the visualization produced, it seems like the Kherson city liberation did not have much of an effect on the returns of the different industries, we don’t see an abrupt change in returns in none of the industries shortly after the event. Nevertheless, it is apparent that the semiconductor industry started observing decreased returns starting 10 days after the event. Given the longer time frame other factors outside of the war could be causing the materialization of this phenomenon, but it could also be argued that this could be due to increased disruptions in the supply chain."
             elif option2 == "Zelensky visits White House":
                 """
                 ## Zelensky visits White House
                 ##### December 21, 2022
                 """
                 "On December 21, Zelensky traveled to Washington, DC to meet with US President Joe Biden at the White House and to address the US Congress. It was a historic and consequential visit, the first foreign trip Zelensky had made since Russia launched its invasion. Just ahead of Zelensky’s arrival, the Biden administration announced it was sending nearly $2 billion in additional security assistance to Ukraine — including a sophisticated new Patriot air defense system."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "The strengthening of relationships between the Western world represented by the United States and Ukraine doesn’t seem to have much of an effect on industry returns shortly after the event. However, between 10 days and 20 days after the attack, all industry returns appear to increase except the food industry which continues on a downward trend since the event date."
             elif option2 == "Germany sends tanks":
                 """
                 ## Germany sends tanks
                 ##### January 25, 2023
                 """
                 "After weeks of geopolitical squabbling, a major moment arrived on January 25 when Germany announced it would provide Leopard 2 tanks to Kyiv and allow other European countries to export the German-made battle tank. At the same time, Biden said the US would send 31 M1 Abrams tanks to Ukraine. The move was hailed as a breakthrough in the West’s military support for Ukraine and signaled a bullish view in the West about Ukraine’s ability to reclaim occupied territory."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "The line graph shows how industries are for the most part unaffected by such a crucial event that marked a turning point in the West’s military aid policy during the war. The only significant trend observed for all industries is the abrupt decrease in returns observed between 3 days and 10 days after the event, which in this case is due to an announcement of an increase in interest rates by the Fed on February 1st."
             elif option2 == "Biden visits Kyiv":
                 """
                 ## Biden visits Kyiv
                 ##### February 20, 2023
                 """
                 "Biden made a highly symbolic surprise visit to Kyiv on February 20, his first since Russia’s full-scale invasion. Standing alongside Zelensky, the US president recalled how the pair spoke by phone as Russian forces rolled in. “One year later, Kyiv stands. And Ukraine stands. Democracy stands,” Biden declared. “The Americans stand with you and the world stands with you.” Zelensky said Biden’s visit brought Ukraine “closer to victory.” The two leaders went on a walkabout in Kyiv just as air raid sirens sounded across the city."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "As seen in the graph, the only industry which saw a decrease in returns shortly after the event is the metals industry with a decrease of 0.82%. The rest of the industries increased their returns anywhere in the range of 1% to 1.75% approximately. In the longer time frame 10 days after the event, all industries continued with this upward trend in returns, with the metal industry seeing the greatest increase in terms of percentage magnitude with 6.92%."
 
 
     elif page == "Analysis":
