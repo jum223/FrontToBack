@@ -287,12 +287,22 @@ def main():
                 ##### October 8, 2022
                 """
                 "In another major blow to Moscow, the only bridge connecting Russia with the Crimean Peninsula was severely damaged by an explosion. The Kerch Strait road-and-rail bridge is both strategically important and hugely symbolic. It was opened by Putin in 2018, four years after Russia illegally annexed Crimea from Ukraine."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "Most industries’ return differences from the date of the event to the given time frames seem to oscillate around a certain range of percentage differences, suggesting that this event didn’t have much significance on the operations or supply chains of the businesses in these industries. Nevertheless, the semiconductor industry did observe a decrease in returns, 3 days after such an event returns decreased by 3.08%, and 10 days after the event industry returns decreased even further to 6.6% approximately. The reason for this could be that the attack on the bridge supposed a greater threat to the supply of food products than any other industry."
             elif option2 == "Kyiv Blackout":
                 """
                 ## Kyiv Blackout
                 ##### October 10, 2022
                 """
                 "A new phase of the war began when Russia launched the first of several waves of missile strikes on Ukraine’s critical energy infrastructure. Using missiles, artillery shells and Iranian-made drones, Moscow began targeting Ukrainian power facilities, leaving large areas of the country without power and water."
+                if all_option1 in option1:
+                    """
+                    ## Analysis:
+                    """
+                    "From this visualization, it is notable to see how the energy industry saw a steady increase in returns post Kyiv blackout. This event involved several waves of missile strikes on Ukraine’s critical energy infrastructure, so it is not surprising to see this trend. After the event, Ukraine probably demanded a greater supply of energy in the form of oil or natural gas from its allied counterparts leading to increased returns in the energy industry as a consequence"
             elif option2 == "Kherson city liberation":
                 """
                 ## Kherson city liberation
