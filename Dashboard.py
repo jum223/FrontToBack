@@ -175,7 +175,7 @@ def main():
                 ## Ukraine announces it will defend its territory: 
                 ##### Febuary 25, 2022
                 """
-                "Amid the chaos of the opening hours of the war, rumors started to swirl about Ukraine’s leadership fleeing the country. Ukrainian President Volodymyr Zelensky and his team reacted by filming a video of themselves in central Kyiv, reassuring the nation. “We are all here defending our independence, our state and it will remain so. Glory to our defenders! Glory to our women defenders! Glory to Ukraine!” Zelensky said. The president had refused a US offer to evacuate, according to the Ukrainian government, saying: “I need ammunition, not a ride.”"
+                "Amid the chaos of the opening hours of the war, rumors started to swirl about Ukraine’s leadership fleeing the country. Ukrainian President Volodymyr Zelensky and his team reacted by filming a video of themselves in central Kyiv, reassuring the nation. “We are all here defending our independence, our state and it will remain so. Glory to our defenders! Glory to our women defenders! Glory to Ukraine!” Zelensky said. The president had refused a US offer to evacuate, according to the Ukrainian government, saying: “I need ammunition, not a ride.“"
                 if all_option1 in option1:
                     """
                     ## Analysis:
@@ -225,9 +225,7 @@ def main():
                     """
                     ## Analysis:
                     """
-                    "The percentage change in returns 3 days after the war crimes were uncovered resulted in negative returns for most industries except the semiconductor industry, which had returns increase by 0.67%, while the rest ranged from -0.57% to -1.32%. The longer term returns, 10 days after the event showed a split between industries. The food, energy and metal industries all had positive returns, 4.65%, 1.22% and 1.22% respectively. The transport and semiconductor industries had major decreases in returns, -4.83% and -9.38% respectively. 
-"
-                    
+                    "The percentage change in returns 3 days after the war crimes were uncovered resulted in negative returns for most industries except the semiconductor industry, which had returns increase by 0.67%, while the rest ranged from -0.57% to -1.32%. The longer term returns, 10 days after the event showed a split between industries. The food, energy and metal industries all had positive returns, 4.65%, 1.22% and 1.22% respectively. The transport and semiconductor industries had major decreases in returns, -4.83% and -9.38% respectively."
             elif option2 == "Sunking of Russian main ship":
                 """
                 ## Sunking of Russian main ship
