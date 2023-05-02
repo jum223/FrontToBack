@@ -45,12 +45,12 @@ In order to download these packages type into the command-line argument interfac
 Juan is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Financial Technology
 (FinTech).
 <br><br>
-<img src="pics/don2.jpg" alt="Matthew Sam" width="300"/>
+<img src="pics/matthew.jpg" alt="Matthew Sam" width="300"/>
 <br>
 Matthew is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Spanish.
-<img src="pics/don2.jpg" alt="Matthew Sam" width="300"/>
-<br>
-Matthew is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Spanish.
+<img src="pics/luca.jpg" alt="Luca Fontaine" width="300"/>
+<br><br>
+Luca Fontaine .
 
 
 
