@@ -51,8 +51,6 @@ def main():
             data_filtered = data.query("Industry in @option1")
             
         sns.set_style("whitegrid", {'axes.grid': True, 'grid.color': '.8', 'grid.linestyle': '-'})
-        sns.despine(top=True, right=True)
-        sns.set_style("ticks", {"xtick.major.size": 0, "ytick.major.size": 0})
 
         # Create plot
         if option1 or (all_option1 in option1):
@@ -78,6 +76,7 @@ def main():
             xticklabels = ['t-20', date.strftime('%Y-%m-%d'), "t+3", "t+10", 't+20']
             plt.xticks(xticks, xticklabels)
             plt.xticks(rotation=45)
+            sns.despine(right=True, top=True)
 
             # add title and axis labels
             plt.title('Cumulative Returns by Industry')
