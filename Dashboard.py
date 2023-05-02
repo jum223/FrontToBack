@@ -40,6 +40,8 @@ def main():
         option2 = st.sidebar.selectbox(
             'Which event do you want to visualize?',
              event_date['Event'].unique())
+        
+        st.sidebar.markdown("[To see the code which produces the visualizations please visit the project repo](https://github.com/jum223/FrontToBack)")
 
         # Filter data based on selected options
         if all_option1 in option1:
@@ -88,7 +90,7 @@ def main():
             st.pyplot(fig)
 
         else:
-            st.image(img, caption='Sunrise by the mountains')
+            st.image(img, caption='Ukrainian Soldiers')
 
         if all_option1 in option1:
             industries = ret_diffs['Industry'].unique()
