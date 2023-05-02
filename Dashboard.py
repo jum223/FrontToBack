@@ -69,7 +69,7 @@ def main():
 
             plt.axvline(date, color='red', linestyle='--', label='Event Date')
 
-            plt.xlim(date - pd.Timedelta(days=20), date + pd.Timedelta(days=20))
+            #plt.xlim(date - pd.Timedelta(days=20), date + pd.Timedelta(days=20))
 
             # set x-axis ticks
             xticks = [date - pd.Timedelta(days=20), date, date + pd.Timedelta(days = 3),date + pd.Timedelta(days = 10), date + pd.Timedelta(days=20)]
