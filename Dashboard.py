@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 from PIL import Image
 
-
 # Load data
 data = pd.read_csv("OutputData/final.csv")
 data["Date"] = pd.to_datetime(data['Date'])
@@ -15,8 +14,10 @@ ret_diffs = pd.read_csv("OutputData/RetDiff.csv")
 ret_diffs["Date"] = pd.to_datetime(ret_diffs['Date'])
 img = Image.open('pics/WarImage.png')
 
+
+
 """
-# Industry Returns throughout the Russia-Ukraine War
+# Industry Returns throughout the Russia-Ukraine War Garganta
 #
 """
 
@@ -48,10 +49,12 @@ def main():
             data_filtered = data.copy()
         else:
             data_filtered = data.query("Industry in @option1")
+            
+        sns.set_style("whitegrid", {'axes.grid': True, 'grid.color': '.8', 'grid.linestyle': '-'})
+        sns.despine(left=True, bottom=True)
 
         # Create plot
         if option1 or (all_option1 in option1):
-            sns.set_style('darkgrid')
             fig, ax = plt.subplots()
             if all_option1 in option1:
                 for ind in data_filtered["Industry"].unique():
@@ -84,6 +87,7 @@ def main():
             plt.legend(loc='upper left')
 
             ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+            #ax.set_axis_off()
 
 
             # show the plot
