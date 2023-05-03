@@ -21,7 +21,7 @@ img = Image.open('pics/Garganta.png')
 
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Home", "Analysis"])
+    page = st.sidebar.radio("Go to", ["Home", "Analysis", "Report"])
 
     if page == "Home":
         
@@ -348,10 +348,142 @@ def main():
                     """
                     "As seen in the graph, the only industry which saw a decrease in returns shortly after the event is the metals industry with a decrease of 0.82%. The rest of the industries increased their returns anywhere in the range of 1% to 1.75% approximately. In the longer time frame 10 days after the event, all industries continued with this upward trend in returns, with the metal industry seeing the greatest increase in terms of percentage magnitude with 6.92%."
 
+        
+    elif page == "Report":
+        st.title("Report")
+        """
+        # Preface / Context
 
-    elif page == "Analysis":
-        st.title("Analysis")
-        st.write("Add your analysis here.")
+Throughout history, wars have had a profound impact on markets and economies. From World War I and World War II to the Gulf War and the Syrian Civil War, conflicts have resulted in significant economic disruptions, with markets reacting to the uncertainty and instability brought about by these events. In some cases, the impact has been short-lived, while in others, the effects have been long-lasting and far-reaching. For example, during World War II, the United States' entry into the conflict led to increased government spending on military production and created new job opportunities in the defense industry, which helped stimulate economic growth. In contrast, the Gulf War in the early 1990s led to a significant increase in oil prices due to concerns over supply disruptions, which caused a slowdown in economic activity.
+
+In the case of the Russian-Ukraine conflict, the impact on markets has been complex and varied. The conflict has had a significant impact on energy markets, with oil and gas prices fluctuating due to concerns over supply disruptions and geopolitical tensions. Other affected markets have been the metals market given that Russia and Ukraine are key producers and sources of nickel, aluminum, titanium, iron, steel, and critical minerals. It is even estimated by 
+The industry association UK Metallurg Prom and Oxford Economics that a third of the metal industry’s capacity has been destroyed and production is about 65% lower. The semiconductor industry has also been heavily affected due to supply chain issues and production shortages, stemming from the fact that Russia and Ukraine are major producers of neon and palladium, which are key materials needed to manufacture semiconductors. The transport industry has also been heavily affected, with many industrial ports, airports, and other transportation centers in the area being closed due to the war hazards, reduced tourism could also have a negative effect on the transport industry. The food industry also stands to lose from the war. Prior to the war Ukraine and Russia combined produced about one third of the world’s wheat demand, and they are also important sources of fertilizer, cooking oil and feed grains such as corn. 
+
+Given the importance of markets and their impact on global economies, it is crucial to understand how conflicts such as the Russian-Ukraine conflict affect them. By analyzing the impact of the conflict on various sectors, we can gain valuable insights into the ways in which geopolitical events shape economic activity and help policymakers develop strategies to mitigate the effects of these events on markets.
+
+# Introduction
+
+The main objective of this project is to determine the extent to which reported key event dates in the Russo-Ukrainian war affected the returns for major firms in the energy, food, transport, semiconductors and metal industries from the start of the conflict until today. The use of visualizations and the calculation of the cumulative returns 20 days before and after a reported key event would serve to support the main hypothesis and answer the research question at hand.  
+
+# Initial Hypothesis
+
+We initially hypothesized that energy and metal industries would be most affected by the Russia-Ukraine War because of how significant these nations are in contributing to the production of these goods. Both nations are considered heavy players in global markets for the production of nickel, aluminum, titanium, iron, steel, and critical minerals. The conflict has also disrupted supply chains and has led to Europe’s efforts to reduce reliance on Russian energy. The price of fuel and energy within the European Union has also risen as Russia decided to suspend gas deliveries to several European Union countries, further impacting the situation. For these reasons, we believe that as the Russia-Ukraine conflict continues, these industries will face the greatest volatility and change.
+
+# Data
+
+The data that was used for this project included key event dates of the war, list of firms in the largest traded exchange-traded funds (ETF) for each industry, adjusted close stock prices for all the firms in the previously mentioned list, and the S&P 500 adjusted close prices for the specific time period. 
+
+The key event dates were collected from CNN’s interactive Russo-Ukrainian war archive which outlined key events throughout the war. We collected 17 key event dates for the war. The data was manually written out. Web scraping was a possibility however due to the very limited amount of dates, it would be best to manually write out all 17 key dates. In addition, it was more efficient to write them out and less hassle to deal with the html code which wrote all dates as strings and not in a date format. 
+
+Next the S&P 500 adjusted close prices were downloaded through the use of ```yf.download``` function in Python. The selected dates were from 2/12/2022 through 4/10/2023. It was best to download this range of dates due to the fact that there is a start to the war and the end to the key event dates on the CNN website. However there were more prices downloaded due to the analysis that would be conducted in this report. The analysis consisted of  looking at  10 dates before and after an event, which required more dates and prices to be downloaded. 
+
+The energy industry firm stocks that were downloaded were from the Vanguard Energy Index Fund ETF (VDE). The file that was downloaded was a CSV file, containing a list of firms that are part of this ETF. It had a total of 112 observations, these firms traded their shares in the U.S stock market and are also tracked by Yahoo Finance. The firms ranged from coal & consumable fuels, integrated oil & gas, oil & gas drilling, oil & gas equipment & services, oil & gas exploration & production, oil & gas exploration & marketing, and oil & gas storage & transportation.
+
+The food industry firm stocks that were downloaded were from the First Trust Nasdaq Food & Beverage ETF (FTXG). It was a CSV file that contained a list of 30 observations, these firms were found to trade in the U.S stock market and also tracked by Yahoo Finance. The firms found in this ETF ranged from food products, soft drinks, fruit and grain processing, distillers and vintners, farming, fishing, ranching, and plantations. 
+
+The transportation industry firm stocks that were downloaded came from the SPDR S&P Transportation ETF (XTN). It was a CSV file that contained a list of 47 observations. The firms in this ETF operated in cargo ground transportation, passenger airlines, air freight & logistics, marine, passenger ground transportation, rail transportation, and trucking. All the firms in this list were tracked by Yahoo Finance. 
+
+The semiconductor industry firm stocks that were downloaded came from SPDR S&P Semiconductor ETF (XSD). It was recorded in a CSV file that contained a list of 38 observations. The firms in this ETF operated specifically in the semiconductor industry, including firms such as NVIDIA, Micron Technology, Intel Corporation, Advanced Micro Devices Inc. and many more. All of these companies trade in the U.S stock market and were also tracked by Yahoo Finance. 
+
+The metal industry firm stocks were downloaded from a list of steel and iron ore focused firms. The downloaded CSV file contained 17 observations, mostly firms located in the U.S, such as Allegheny Technologies Incorporated, Carpenter Technology Corporation, Commercial Metals Company, etc. All of these stocks traded in the U.S stock market and were also tracked by Yahoo Finance.
+
+# Methodology
+
+# Calculating Daily Returns for each Industry
+
+Calculating the stock returns started with the daily returns for each firm at a specific date, which would allow for the calculation of the excess and cumulative returns. 
+
+The use of the following code:
+
+```
+metal_prices = metal_prices.sort_values(['Firm', 'Date'])
+metal_prices['Daily Returns'] = metal_prices.groupby('Firm')['Adj Close'].pct_change()
+```
+
+It calculated the daily return of the firms in the metal industry. The use of a .groupby function separated the dataset between firms, which would not allow for firms to merge its returns and kept calculating daily returns within each individual firm. The use of the ```.pct_change()``` function is what calculates the daily return for this table. This was done for all five industries.
+
+# Calculating Daily Returns for S&P 500
+
+```
+market_ret.columns = ['Firm','Date','Adj Close']
+market_ret['Firm'] = "sp500"
+market_ret['Daily Returns'] = market_ret['Adj Close'].pct_change()
+market_ret
+```
+
+This code calculated the daily returns for the S&P 500, which would come to serve as the market return which would then be compared to the different industry returns. The need to calculate for the daily returns is to directly compare them to the firms’ daily returns from the metal, food, transportation, semiconductor, and energy industries, which would allow for the calculation of the excess returns. 
+
+# Calculating Excess Returns
+
+The code below calculates the excess returns for the metal industry. It uses the daily returns from the metal industry and subtracts it to the S&P 500 daily returns. A positive excess return would demonstrate that the metal industry outperformed the S&P 500, and any negative excess value would show that the S&P 500 index outperformed the metal industry. This was repeated for all five industries in order to calculate their excess returns. 
+
+```
+metal_excess_returns = metal_prices.groupby(['Firm', 'Date'])['Daily Returns'].mean() - market_ret.set_index('Date')['Daily Returns']
+metal_excess_returns = metal_excess_returns.reset_index()
+metal_excess_returns = metal_excess_returns.rename(columns={'Daily Returns': 'Excess Returns'})
+metal_excess_returns["Industry"] = "Metal"
+```
+
+# Calculating cumulative returns
+
+```
+event_ret_df = pd.DataFrame()
+industries = ['Food', 'Transport', 'Semiconductor', 'Energy', 'Metal']
+for index, row in event_dates.iterrows():
+    event = row['Event']
+    date = row['Date']
+    # Define the start and end dates for the subset
+    start_date = pd.to_datetime(date) - pd.Timedelta(days=20)
+    end_date = pd.to_datetime(date) + pd.Timedelta(days=20)
+
+    for industry in industries:
+        sub_df = inter_df.query("Date >= @start_date and Date <= @end_date and Industry == @industry")
+        sub_df_cum = sub_df.assign(R=1+sub_df['Excess Returns']).assign(cumret=lambda x: x.groupby(['Firm'])['R'].cumprod()).groupby(['Date'])['cumret'].mean().reset_index(name='Cum_ret')
+        sub_df_cum["Event"] = event
+        sub_df_cum["EventDate"] = date
+        sub_df_cum["Industry"] = industry
+        event_ret_df = pd.concat([event_ret_df, sub_df_cum])
+
+event_ret_df["Cum_ret"] = event_ret_df["Cum_ret"] - 1
+event_ret_df["EventDate"] = pd.to_datetime(event_ret_df["EventDate"])
+event_ret_df["Date"] = pd.to_datetime(event_ret_df["Date"])
+event_ret_df.to_csv("../OutputData/final.csv")
+```
+
+This code calculates the cumulative returns for all the five industries, it takes the excess returns and takes the cumulative product for + and - 20 dates from the event date, which results in a mean value from a set of cumulative returns. 
+
+A subset of the cleaned dataset was needed in order to graph for 10 +/- dates from the event date. It was necessary to get more dates than + or - 10 dates in order to cover for the possibility of non-trading days as it would also improve the visualizations. 
+
+We also created a new dataframe which would hold the cumulative returns around an event date which allowed us to create specific graphs for each industry for a particular event that occurred during the war. 
+
+# Calculating Return Differences
+
+The following code calculates the change in returns compared to the event date. It takes the event dates and looks at 3 and 10 days after the event, which would allow us to determine the specific percentage change for those dates. We then saved the data frame into a csv file in order to graph and locate those specific percentage change returns.  
+
+```
+rets_df["retDiff3"] = rets_df["ret3"] - rets_df["ret0"]
+rets_df["retDiff10"] = rets_df["ret10"] - rets_df["ret0"]
+rets_df = rets_df.drop(['ret3', 'ret10','ret0'], axis=1)
+rets_df.rename(columns = {"retDiff3": "ret3", "retDiff10": "ret10"}, inplace = True)
+rets_df.to_csv("../OutputData/RetDiff.csv")
+rets_df.head(10)
+```
+
+# Creating our Dashboard
+
+Our dashboard was created using the streamlit package. We organized the dashboard into two parts, the main window and the sidebar. From the sidebar the user can access the home page as well as the analysis report. The sidebar also allows the user to select which industry and event they would like to see graphed. The main homepage features a graph created by the industry and event selected. The homepage also features a description of the event that was obtained from the CNN interactive timeline article, as well as our analysis of each industry at the time the event occurred. 
+
+# Conclusion
+In our analysis of the industry returns for Metal, Transport, Energy, Semiconductors, and Food, we observed that the Metal and Energy sectors were significantly impacted in the early days of the Russia-Ukraine conflict due to the nations' substantial contributions to the production of these goods. However, as the conflict progressed and major events unfolded, we did not notice any considerable changes in the other industry returns.
+
+Despite our initial hypothesis, the observed impact on various industries during the conflict was not as significant as anticipated. To draw more accurate conclusions, further data analysis and consideration of other factors affecting the stock market, such as the Federal Reserve raising interest rates, may be necessary.
+
+# Sources and Citations
+“Russian Invasion of Ukraine: A Timeline of Key Events on the 1st Anniversary of the War.” CNN, Cable News Network, https://www.cnn.com/interactive/2023/02/europe/russia-ukraine-war-timeline/index.html.
+Arhirova, H. (2023, March 27). A steel plant ready for war shows hit to Ukraine's economy. AP NEWS. Retrieved May 2, 2023, from https://apnews.com/article/russia-ukraine-war-economy-metal-industry-6494b245289f795ff2c3da87e9d2eba1# 
+KPMG. (2022, August 17). Ukraine-Russia sector considerations: Semiconductor Industry. KPMG. Retrieved May 2, 2023, from https://kpmg.com/xx/en/home/insights/2022/08/semiconductor-considerations.html 
+Aizenman, N. (2023, February 27). The impact of the Ukraine War on food supplies: 'it could have ... - NPR. Goats and Soda. Retrieved May 3, 2023, from https://www.npr.org/sections/goatsandsoda/2023/02/27/1159630215/the-russia-ukraine-wars-impact-on-food-security-1-year-later 
+"""
 
 if __name__ == "__main__":
     main()
