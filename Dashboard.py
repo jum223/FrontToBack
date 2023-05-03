@@ -373,7 +373,7 @@ We initially hypothesized that energy and metal industries would be most affecte
 
 The data that was used for this project included key event dates of the war, list of firms in the largest traded exchange-traded funds (ETF) for each industry, adjusted close stock prices for all the firms in the previously mentioned list, and the S&P 500 adjusted close prices for the specific time period. 
 
-The key event dates were collected from CNN’s interactive Russo-Ukrainian war archive which outlined key events throughout the war. We collected 17 key event dates for the war. The data was manually written out. Web scraping was a possibility however due to the very limited amount of dates, it would be best to manually write out all 17 key dates. In addition, it was more efficient to write them out and less hassle to deal with the html code which wrote all dates as strings and not in a date format. 
+The key event dates were collected from CNN’s interactive Russo-Ukrainian war archive which outlined key events throughout the war. We collected 17 key event dates for the war. The data was manually written out. Web scraping was a possibility however due to the very limited amount of dates, it would be best to manually write out all 17 key dates rather than deploying some sort of a web scraping algorithm. In addition, it was more efficient to write them out and less hassle to deal with the html code which wrote all dates as strings and not in a date format. 
 
 Next the S&P 500 adjusted close prices were downloaded through the use of ```yf.download``` function in Python. The selected dates were from 2/12/2022 through 4/10/2023. It was best to download this range of dates due to the fact that there is a start to the war and the end to the key event dates on the CNN website. However there were more prices downloaded due to the analysis that would be conducted in this report. The analysis consisted of  looking at  10 dates before and after an event, which required more dates and prices to be downloaded. 
 
@@ -387,46 +387,47 @@ The semiconductor industry firm stocks that were downloaded came from SPDR S&P S
 
 The metal industry firm stocks were downloaded from a list of steel and iron ore focused firms. The downloaded CSV file contained 17 observations, mostly firms located in the U.S, such as Allegheny Technologies Incorporated, Carpenter Technology Corporation, Commercial Metals Company, etc. All of these stocks traded in the U.S stock market and were also tracked by Yahoo Finance.
 
+After downloading the data for the different ETFs we accessed the column which identified the firms by their ticker and converted them to a list. This list of firms is what we then passed to the ````yfinance.download``` function which downloaded the pricing data for the firms of interest within the date range we specified. 
+
 # Methodology
 
 ### Calculating Daily Returns for each Industry
 
-Calculating the stock returns started with the daily returns for each firm at a specific date, which would allow for the calculation of the excess and cumulative returns. 
+After the initial download of the firm’s adjusted closing price by date, the first step was to calculate daily returns for each firm in the industries. This would then allow for the calculation of the excess and cumulative returns. 
 
-The use of the following code:
+We used the following code:
 
-```
+```python
 metal_prices = metal_prices.sort_values(['Firm', 'Date'])
 metal_prices['Daily Returns'] = metal_prices.groupby('Firm')['Adj Close'].pct_change()
 ```
 
-It calculated the daily return of the firms in the metal industry. The use of a .groupby function separated the dataset between firms, which would not allow for firms to merge its returns and kept calculating daily returns within each individual firm. The use of the ```.pct_change()``` function is what calculates the daily return for this table. This was done for all five industries.
+The above code snippet is an example of how we calculated the daily returns of the firms in the metal industry, one can assume that this same algorithm was used for the rest of the industries. The use of a .groupby function separated the dataset between firms, which would not allow for firms to merge its returns and kept calculating daily returns within each individual firm. The use of the ```.pct_change()``` function is what calculates the daily return for the adjusted close (adjusted closing price) variable which is performed by taking the difference (expressed as a percentage) between the adjusted closing price of a firm in a given trading day and the adjusted closing price of a firm the next trading day. This was done for all five industries.
 
 ### Calculating Daily Returns for S&P 500
 
-```
+```python
 market_ret.columns = ['Firm','Date','Adj Close']
 market_ret['Firm'] = "sp500"
 market_ret['Daily Returns'] = market_ret['Adj Close'].pct_change()
 market_ret
 ```
 
-This code calculated the daily returns for the S&P 500, which would come to serve as the market return which would then be compared to the different industry returns. The need to calculate for the daily returns is to directly compare them to the firms’ daily returns from the metal, food, transportation, semiconductor, and energy industries, which would allow for the calculation of the excess returns. 
+This code calculated the daily returns for the S&P 500, which would come to serve as the market return which would then be compared to the different industry returns. The need to calculate the daily returns is to directly compare them to the firms’ daily returns from the metal, food, transportation, semiconductor, and energy industries, which would allow for the calculation of the excess returns. 
 
 ### Calculating Excess Returns
 
-The code below calculates the excess returns for the metal industry. It uses the daily returns from the metal industry and subtracts it to the S&P 500 daily returns. A positive excess return would demonstrate that the metal industry outperformed the S&P 500, and any negative excess value would show that the S&P 500 index outperformed the metal industry. This was repeated for all five industries in order to calculate their excess returns. 
-
-```
+```python
 metal_excess_returns = metal_prices.groupby(['Firm', 'Date'])['Daily Returns'].mean() - market_ret.set_index('Date')['Daily Returns']
 metal_excess_returns = metal_excess_returns.reset_index()
 metal_excess_returns = metal_excess_returns.rename(columns={'Daily Returns': 'Excess Returns'})
 metal_excess_returns["Industry"] = "Metal"
 ```
+The code above calculates the excess returns for the firms in the metal industry. It uses the daily returns from the firms in the metal industry and subtracts it to the S&P 500 daily returns. A positive excess return would demonstrate that a firm in the metal industry outperformed the S&P 500, and any negative excess value would show that the S&P 500 index outperformed a firm in the metal industry. This was repeated for all five industries in order to calculate their excess returns. We then added an extra column to specify which industry the given first belongs to. This final step is performed in preparation of the cumulative returns over different time frames by industry. 
 
-### Calculating cumulative returns
+### Calculating Cumulative Returns
 
-```
+```python
 event_ret_df = pd.DataFrame()
 industries = ['Food', 'Transport', 'Semiconductor', 'Energy', 'Metal']
 for index, row in event_dates.iterrows():
@@ -450,17 +451,57 @@ event_ret_df["Date"] = pd.to_datetime(event_ret_df["Date"])
 event_ret_df.to_csv("../OutputData/final.csv")
 ```
 
-This code calculates the cumulative returns for all the five industries, it takes the excess returns and takes the cumulative product for + and - 20 dates from the event date, which results in a mean value from a set of cumulative returns. 
+This code essentially calculates cumulative returns by date for every industry for every major event in the war. The outer for-loop iterates over the major events dataframe, it then specifies a time frame for which cumulative returns are to be calculated, in our case we use 20 days before and after the event as we thought that this time frame would allow for a visual comparison of returns pre and post the events. 
 
-A subset of the cleaned dataset was needed in order to graph for 10 +/- dates from the event date. It was necessary to get more dates than + or - 10 dates in order to cover for the possibility of non-trading days as it would also improve the visualizations. 
+The code then subsets the data to include only the rows that are within the time range and belonging to a certain industry, there is an inner for loop which iterates over the different values in the “Industry” column which allows for the calculation of cumulative returns by industry by event.
 
-We also created a new dataframe which would hold the cumulative returns around an event date which allowed us to create specific graphs for each industry for a particular event that occurred during the war. 
+The resulting computed values, along with some other variable identifiers like the day of the event, the industry, and the nature of the event are then added into a dataframe which was created empty. The resulting dataframe is our final dataset which will be then used to produce the different visualizations seen in the “Home” tab of the dashboard. 
 
-### Calculating Return Differences
+# The Final Dataset
 
-The following code calculates the change in returns compared to the event date. It takes the event dates and looks at 3 and 10 days after the event, which would allow us to determine the specific percentage change for those dates. We then saved the data frame into a csv file in order to graph and locate those specific percentage change returns.  
+In our final dataset every observation represents a calculation of a cumulative return for a specific industry for a specific event, which would allow us to plot cumulative returns by industry by events. Please note that the industries’ returns are cumulated separately for each event to allow for a better understanding and analysis of how events impact industry stock returns. This dataset contains a total of 2405 observations and 5 different columns, which are 'Date', 'Cum_ret', 'Event', 'EventDate', 'Industry'. If you have followed the steps to run the code in the readme file of the repo (link available in the home tab of the dashboard), you can inspect the nature of the dataset created which is called final.csv and is found within the OutputData folder.
 
+# Calculating Return Differences 
+
+```python
+rets = []
+industries = ['Food', 'Transport', 'Semiconductor', 'Energy', 'Metal']
+for index, row in event_dates.iterrows():
+    event = row['Event']
+    date = row['Date']
+
+    sub_df = event_ret_df.query("Event == @event")
+    sub_df['Date'] = pd.to_datetime(sub_df['Date'])
+    last_date = sub_df['Date'].max()
+    date1 = date + pd.Timedelta(days=3)
+    date2 = date + pd.Timedelta(days=10)
+    
+    plt.figure(figsize=(8, 6))
+    for industry in industries:
+        industry_df = sub_df[sub_df['Industry'] == industry]
+        sns.lineplot(x='Date', y='Cum_ret', data=industry_df, label=industry)
+    
+    plt.axvline(date, color='red', linestyle='--', label='Event Date')
+    plt.axvline(date1, color='red', linestyle='--', label='Event Date + 3')
+    plt.axvline(date2, color='red', linestyle='--', label='Event Date + 10')
+    plt.xlim(date - pd.Timedelta(days=20), date + pd.Timedelta(days=20))
+    
+    for line in plt.gca().lines:
+        if line.get_label() in industries: 
+            x = mpl_dates.date2num(date)
+            x1 = mpl_dates.date2num(date1)
+            x2 = mpl_dates.date2num(date2)
+            y = np.interp(x, line.get_xdata().astype(np.float64), line.get_ydata().astype(np.float64))
+            y1 = np.interp(x1, line.get_xdata().astype(np.float64), line.get_ydata().astype(np.float64))
+            y2 = np.interp(x2, line.get_xdata().astype(np.float64), line.get_ydata().astype(np.float64))
+            result = {"Date": date, "Industry": line.get_label(), 'ret0': y, "ret3": y1, "ret10": y2}
+            rets.append(result)
+    
+    plt.close()
+
+rets_df = pd.DataFrame(rets)
 ```
+```python
 rets_df["retDiff3"] = rets_df["ret3"] - rets_df["ret0"]
 rets_df["retDiff10"] = rets_df["ret10"] - rets_df["ret0"]
 rets_df = rets_df.drop(['ret3', 'ret10','ret0'], axis=1)
@@ -468,10 +509,13 @@ rets_df.rename(columns = {"retDiff3": "ret3", "retDiff10": "ret10"}, inplace = T
 rets_df.to_csv("../OutputData/RetDiff.csv")
 rets_df.head(10)
 ```
+The above code blocks are used to calculate return differences between the event date and some days after the event. We decided to calculate return differences 3 days after the event to allow for a numerical comparison and look at the short term effects of the event. We also wanted to look at return differences 10 days after the event, this allows for a numerical comparison within a longer time frame and could help us gain further insights into whether the effects of an event in the war are long lived or not. Even though the first code block might seem confusing, it is essentially accessing the return variable at times 0, 3 days after and 10 days after the event. Rather than using data points from our dataset to calculate the return differences we used the return values from the line graph, this solved one of the main limitations of our data, the fact that many dates are not actual trading days, meaning that in some cases we did not have a datapoint for a return on a given date. This also means that some return difference calculations are approximations, they are based on a point in the line graph which might be within two data points. For example if 3 days after the event, the day is a non-trading day, we don’t have return data for that date so instead we use the value displayed by the line graph.    
 
-### Creating our Dashboard
+The second code block just serves to calculate return differences between the return values at different point in times which were accessed above. This was a complimentary dataset that we wanted to use for our analysis. We thought that mere line graph visualizations, could explain a general picture and trends but we also thought that we needed to have concrete numerical values which would allow for faster comparison between industries.  
 
-Our dashboard was created using the streamlit package. We organized the dashboard into two parts, the main window and the sidebar. From the sidebar the user can access the home page as well as the analysis report. The sidebar also allows the user to select which industry and event they would like to see graphed. The main homepage features a graph created by the industry and event selected. The homepage also features a description of the event that was obtained from the CNN interactive timeline article, as well as our analysis of each industry at the time the event occurred. 
+# Creating our Dashboard
+
+Our dashboard was created using the streamlit package. We organized the dashboard into two parts, the main window and the sidebar. From the sidebar the user can access the home page as well as the report. The sidebar also allows the user to select which industry and event they would like to see graphed. The main homepage features a graph created by the industry and event selected. The homepage also features a description of the event that was obtained from the CNN interactive timeline article, as well as our analysis of each industry at the time the event occurred. 
 
 # Conclusion
 In our analysis of the industry returns for Metal, Transport, Energy, Semiconductors, and Food, we observed that the Metal and Energy sectors were significantly impacted in the early days of the Russia-Ukraine conflict due to the nations' substantial contributions to the production of these goods. However, as the conflict progressed and major events unfolded, we did not notice any considerable changes in the other industry returns.
@@ -480,9 +524,9 @@ Despite our initial hypothesis, the observed impact on various industries during
 
 # Sources and Citations
 - “Russian Invasion of Ukraine: A Timeline of Key Events on the 1st Anniversary of the War.” CNN, Cable News Network, https://www.cnn.com/interactive/2023/02/europe/russia-ukraine-war-timeline/index.html.
-- Arhirova, H. (2023, March 27). A steel plant ready for war shows hit to Ukraine's economy. AP NEWS. Retrieved May 2, 2023, from https://apnews.com/article/russia-ukraine-war-economy-metal-industry-6494b245289f795ff2c3da87e9d2eba1# 
+- Argirova, H. (2023, March 27). A steel plant ready for war shows a hit to Ukraine's economy. AP NEWS. Retrieved May 2, 2023, from https://apnews.com/article/russia-ukraine-war-economy-metal-industry-6494b245289f795ff2c3da87e9d2eba1# 
 - KPMG. (2022, August 17). Ukraine-Russia sector considerations: Semiconductor Industry. KPMG. Retrieved May 2, 2023, from https://kpmg.com/xx/en/home/insights/2022/08/semiconductor-considerations.html 
-- Aizenman, N. (2023, February 27). The impact of the Ukraine War on food supplies: 'it could have ... - NPR. Goats and Soda. Retrieved May 3, 2023, from https://www.npr.org/sections/goatsandsoda/2023/02/27/1159630215/the-russia-ukraine-wars-impact-on-food-security-1-year-later 
+- Aizenman, N. (2023, February 27). The impact of the Ukraine War on food supplies: 'it could have ... - NPR. Goats and Soda. Retrieved May 3, 2023, from https://www.npr.org/sections/goatsandsoda/2023/02/27/1159630215/the-russia-ukraine-wars-impact-on-food-security-1-year-later
 """
 
 if __name__ == "__main__":
