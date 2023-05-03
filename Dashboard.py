@@ -21,7 +21,7 @@ img = Image.open('pics/Garganta.png')
 
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.radio("Go to", ["Home", "Analysis", "Report"])
+    page = st.sidebar.radio("Go to", ["Home", "Report"])
 
     if page == "Home":
         
@@ -389,7 +389,7 @@ The metal industry firm stocks were downloaded from a list of steel and iron ore
 
 # Methodology
 
-# Calculating Daily Returns for each Industry
+### Calculating Daily Returns for each Industry
 
 Calculating the stock returns started with the daily returns for each firm at a specific date, which would allow for the calculation of the excess and cumulative returns. 
 
@@ -402,7 +402,7 @@ metal_prices['Daily Returns'] = metal_prices.groupby('Firm')['Adj Close'].pct_ch
 
 It calculated the daily return of the firms in the metal industry. The use of a .groupby function separated the dataset between firms, which would not allow for firms to merge its returns and kept calculating daily returns within each individual firm. The use of the ```.pct_change()``` function is what calculates the daily return for this table. This was done for all five industries.
 
-# Calculating Daily Returns for S&P 500
+### Calculating Daily Returns for S&P 500
 
 ```
 market_ret.columns = ['Firm','Date','Adj Close']
@@ -413,7 +413,7 @@ market_ret
 
 This code calculated the daily returns for the S&P 500, which would come to serve as the market return which would then be compared to the different industry returns. The need to calculate for the daily returns is to directly compare them to the firms’ daily returns from the metal, food, transportation, semiconductor, and energy industries, which would allow for the calculation of the excess returns. 
 
-# Calculating Excess Returns
+### Calculating Excess Returns
 
 The code below calculates the excess returns for the metal industry. It uses the daily returns from the metal industry and subtracts it to the S&P 500 daily returns. A positive excess return would demonstrate that the metal industry outperformed the S&P 500, and any negative excess value would show that the S&P 500 index outperformed the metal industry. This was repeated for all five industries in order to calculate their excess returns. 
 
@@ -424,7 +424,7 @@ metal_excess_returns = metal_excess_returns.rename(columns={'Daily Returns': 'Ex
 metal_excess_returns["Industry"] = "Metal"
 ```
 
-# Calculating cumulative returns
+### Calculating cumulative returns
 
 ```
 event_ret_df = pd.DataFrame()
@@ -456,7 +456,7 @@ A subset of the cleaned dataset was needed in order to graph for 10 +/- dates fr
 
 We also created a new dataframe which would hold the cumulative returns around an event date which allowed us to create specific graphs for each industry for a particular event that occurred during the war. 
 
-# Calculating Return Differences
+### Calculating Return Differences
 
 The following code calculates the change in returns compared to the event date. It takes the event dates and looks at 3 and 10 days after the event, which would allow us to determine the specific percentage change for those dates. We then saved the data frame into a csv file in order to graph and locate those specific percentage change returns.  
 
@@ -469,7 +469,7 @@ rets_df.to_csv("../OutputData/RetDiff.csv")
 rets_df.head(10)
 ```
 
-# Creating our Dashboard
+### Creating our Dashboard
 
 Our dashboard was created using the streamlit package. We organized the dashboard into two parts, the main window and the sidebar. From the sidebar the user can access the home page as well as the analysis report. The sidebar also allows the user to select which industry and event they would like to see graphed. The main homepage features a graph created by the industry and event selected. The homepage also features a description of the event that was obtained from the CNN interactive timeline article, as well as our analysis of each industry at the time the event occurred. 
 
@@ -479,10 +479,10 @@ In our analysis of the industry returns for Metal, Transport, Energy, Semiconduc
 Despite our initial hypothesis, the observed impact on various industries during the conflict was not as significant as anticipated. To draw more accurate conclusions, further data analysis and consideration of other factors affecting the stock market, such as the Federal Reserve raising interest rates, may be necessary.
 
 # Sources and Citations
-“Russian Invasion of Ukraine: A Timeline of Key Events on the 1st Anniversary of the War.” CNN, Cable News Network, https://www.cnn.com/interactive/2023/02/europe/russia-ukraine-war-timeline/index.html.
-Arhirova, H. (2023, March 27). A steel plant ready for war shows hit to Ukraine's economy. AP NEWS. Retrieved May 2, 2023, from https://apnews.com/article/russia-ukraine-war-economy-metal-industry-6494b245289f795ff2c3da87e9d2eba1# 
-KPMG. (2022, August 17). Ukraine-Russia sector considerations: Semiconductor Industry. KPMG. Retrieved May 2, 2023, from https://kpmg.com/xx/en/home/insights/2022/08/semiconductor-considerations.html 
-Aizenman, N. (2023, February 27). The impact of the Ukraine War on food supplies: 'it could have ... - NPR. Goats and Soda. Retrieved May 3, 2023, from https://www.npr.org/sections/goatsandsoda/2023/02/27/1159630215/the-russia-ukraine-wars-impact-on-food-security-1-year-later 
+- “Russian Invasion of Ukraine: A Timeline of Key Events on the 1st Anniversary of the War.” CNN, Cable News Network, https://www.cnn.com/interactive/2023/02/europe/russia-ukraine-war-timeline/index.html.
+- Arhirova, H. (2023, March 27). A steel plant ready for war shows hit to Ukraine's economy. AP NEWS. Retrieved May 2, 2023, from https://apnews.com/article/russia-ukraine-war-economy-metal-industry-6494b245289f795ff2c3da87e9d2eba1# 
+- KPMG. (2022, August 17). Ukraine-Russia sector considerations: Semiconductor Industry. KPMG. Retrieved May 2, 2023, from https://kpmg.com/xx/en/home/insights/2022/08/semiconductor-considerations.html 
+- Aizenman, N. (2023, February 27). The impact of the Ukraine War on food supplies: 'it could have ... - NPR. Goats and Soda. Retrieved May 3, 2023, from https://www.npr.org/sections/goatsandsoda/2023/02/27/1159630215/the-russia-ukraine-wars-impact-on-food-security-1-year-later 
 """
 
 if __name__ == "__main__":
