@@ -7,11 +7,11 @@ The main goal of this project is to explore how different industries are affecte
 
 **To see and interact with the visualizations we based our analysis on, please visit the [home page](https://russiaukrainewarindustryreturns.streamlit.app) of our dashboard. This page will allow you to select a number industries at a time (or all of them) and events based on their description which will then output a line graph based on the desired industry and event choices**
 
-**For further details on the data we used to produce the visualization, the methodologies used to produce the code that produces the visualizations, our findings and the conclusions we reached please visit our dashboard's [analysis section](https://russiaukrainewarindustryreturns.streamlit.app/#analysis)**
+**For further details on the data we used to produce the visualization, the methodologies used to produce the code that produces the visualizations, our findings and the conclusions we reached please visit our dashboard's [report section](https://russiaukrainewarindustryreturns.streamlit.app/#analysis)**
 
 ## Summarized Findings
 
-Enter a very brief summary of our findings here after we are done with the report 
+In our analysis of the industry returns for Metal, Transport, Energy, Semiconductors, and Food, we observed that the Metal and Energy sectors were significantly impacted in the early days of the Russia-Ukraine conflict due to the nations' substantial contributions to the production of these goods. However, as the conflict progressed and major events unfolded, we did not notice any considerable changes in the other industry returns.
 
 ## How to Run the Code
 
