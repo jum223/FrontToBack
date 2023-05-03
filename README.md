@@ -48,8 +48,9 @@ Juan is a senior at Lehigh University with a double major in Finance and Busines
 <img src="pics/matthew.png" alt="Matthew Sam" width="300"/>
 <br>
 Matthew is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Spanish.
-<img src="pics/luca.png" alt="Luca Fontaine" width="300"/>
 <br><br>
+<img src="pics/luca.png" alt="Luca Fontaine" width="300"/>
+<br>
 Luca Fontaine is a junior at Lehigh University with a major in Finance and a minor in Entrepreneurship and Computer Science.
 
 
