@@ -38,6 +38,10 @@ In order to make this code work there are a number of packages and libraries whi
 
 In order to download these packages type into the command-line argument interface the following: pip install <library_name>. Once this is done you should be able to run all the code in this directory. Make sure that you run all of the import statements that appear through the .ipynb file. In order to run this then clone this repository from github into your own machine, then use the command line argument interface to access that repository by running the command "jupyter lab". This will open a tab in your web browser that will allow you to successfully run the code on your machine. Remember to follow the running steps highlighted above.
 
+## More 
+
+To see the files which produced the visualizations shown in the dashboard please see our [build file](https://github.com/jum223/FrontToBack/blob/main/Code/MainBuild.ipynb).
+
 ## About the team
 
 <img src="pics/juan.png" alt="Juan Mozos Nieto" width="300"/>
@@ -52,9 +56,3 @@ Matthew is a senior at Lehigh University with a double major in Finance and Busi
 <img src="pics/luca.png" alt="Luca Fontaine" width="300"/>
 <br>
 Luca Fontaine is a junior at Lehigh University with a major in Finance and a minor in Entrepreneurship and Computer Science.
-
-
-
-## More 
-
-To see the files which produced the visualizations shown in the dashboard please see our [build file](https://github.com/jum223/FrontToBack/blob/main/Code/MainBuild.ipynb).
