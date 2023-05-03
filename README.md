@@ -40,15 +40,15 @@ In order to download these packages type into the command-line argument interfac
 
 ## About the team
 
-<img src="pics/juan.jpg" alt="Juan Mozos Nieto" width="300"/>
+<img src="pics/juan.png" alt="Juan Mozos Nieto" width="300"/>
 <br>
 Juan is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Financial Technology
 (FinTech).
 <br><br>
-<img src="pics/matthew.jpg" alt="Matthew Sam" width="300"/>
+<img src="pics/matthew.png" alt="Matthew Sam" width="300"/>
 <br>
 Matthew is a senior at Lehigh University with a double major in Finance and Business Analytics, and a minor in Spanish.
-<img src="pics/luca.jpg" alt="Luca Fontaine" width="300"/>
+<img src="pics/luca.png" alt="Luca Fontaine" width="300"/>
 <br><br>
 Luca Fontaine is a junior at Lehigh University with a major in Finance and a minor in Entrepreneurship and Computer Science.
 
